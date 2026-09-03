@@ -46,6 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-bg text-fg min-h-screen flex flex-col antialiased">
+        <div className="scroll-progress" aria-hidden="true" />
         <Scrollspy />
         {children}
       </body>
