@@ -527,3 +527,46 @@ body {
     animation: none !important;
   }
 }
+
+/* ──────────────────────────────────────────────────────
+   Live feed entry transitions — used by <LiveFeed />
+   feed-in: new entry slides up from below + fades in
+   feed-out: top entry slides up + fades out before removal
+   ────────────────────────────────────────────────────── */
+
+@keyframes feed-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes feed-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+.feed-in {
+  animation: feed-in 550ms var(--ease-out-expo) both;
+}
+
+.feed-out {
+  animation: feed-out 450ms var(--ease-out-expo) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feed-in,
+  .feed-out {
+    animation: none !important;
+  }
+}

@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "@/components/icons";
-import { FeaturedCard } from "@/components/sections/FeaturedCard";
+import { LiveFeed } from "@/components/sections/LiveFeed";
 import { MeshOverlay } from "@/components/sections/MeshOverlay";
 import { HeroFx } from "@/components/sections/HeroFx";
 import { StatCounter } from "@/components/sections/StatCounter";
@@ -80,9 +80,9 @@ export function Hero() {
             </ul>
           </div>
 
-          {/* Right column — featured product card */}
+          {/* Right column — live activity feed */}
           <div className="hero-card relative">
-            <FeaturedCard />
+            <LiveFeed />
           </div>
         </div>
       </Container>
