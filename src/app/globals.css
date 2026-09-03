@@ -190,7 +190,21 @@ body {
 }
 
 .cursor-blink {
-  animation: blink-cursor 1s steps(1) infinite;
+  opacity: 0;
+  animation:
+    hero-cursor-boot 250ms 100ms var(--ease-out-expo) forwards,
+    blink-cursor 1s steps(1) 350ms infinite;
+}
+
+@keyframes hero-cursor-boot {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes glitch-shift {
@@ -462,5 +476,54 @@ body {
   }
   .scroll-progress {
     display: none;
+  }
+}
+
+/* ──────────────────────────────────────────────────────
+   Hero on-load entrance — staggered fade-up on mount
+   Pure CSS, plays once. Composes with existing scroll
+   parallax on .hero-text / .hero-card (separate transform).
+   ────────────────────────────────────────────────────── */
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-enter-large {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#top .hero-text > * {
+  animation: hero-enter 500ms var(--ease-out-expo) both;
+}
+#top .hero-text > *:nth-child(1) { animation-delay: 0ms; }
+#top .hero-text > *:nth-child(2) { animation-delay: 120ms; }
+#top .hero-text > *:nth-child(3) { animation-delay: 240ms; }
+#top .hero-text > *:nth-child(4) { animation-delay: 360ms; }
+#top .hero-text > *:nth-child(5) { animation-delay: 480ms; }
+#top .hero-text > *:nth-child(6) { animation-delay: 600ms; }
+
+#top .hero-card > * {
+  animation: hero-enter-large 800ms var(--ease-out-expo) 240ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #top .hero-text > *,
+  #top .hero-card > * {
+    animation: none !important;
   }
 }

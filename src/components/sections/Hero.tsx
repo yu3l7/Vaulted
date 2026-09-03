@@ -4,6 +4,13 @@ import { ArrowRight } from "@/components/icons";
 import { FeaturedCard } from "@/components/sections/FeaturedCard";
 import { MeshOverlay } from "@/components/sections/MeshOverlay";
 import { HeroFx } from "@/components/sections/HeroFx";
+import { StatCounter } from "@/components/sections/StatCounter";
+
+const STATS = [
+  { label: "delivered", value: "4,200+", tag: "ORDERS" },
+  { label: "avg. delivery", value: "18 min", tag: "MEDIAN" },
+  { label: "rating", value: "4.9★", tag: "612 VOUCHES" },
+];
 
 export function Hero() {
   return (
@@ -60,29 +67,8 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Stats — HUD style */}
-            <dl className="mono mt-14 grid max-w-xl grid-cols-3 gap-4 border-t border-border-bright pt-6">
-              {[
-                { label: "delivered", value: "4,200+", tag: "ORDERS" },
-                { label: "avg. delivery", value: "18 min", tag: "MEDIAN" },
-                { label: "rating", value: "4.9★", tag: "612 VOUCHES" },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="border-l border-border-bright pl-3"
-                >
-                  <dt className="text-[10px] uppercase tracking-wider text-muted">
-                    {s.label}
-                  </dt>
-                  <dd className="mt-1 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
-                    {s.value}
-                  </dd>
-                  <p className="text-[9px] uppercase tracking-wider text-accent">
-                    {s.tag}
-                  </p>
-                </div>
-              ))}
-            </dl>
+            {/* Stats — HUD style with count-up animation */}
+            <StatCounter stats={STATS} />
 
             <ul className="mono mt-10 space-y-1.5 text-[11px] uppercase tracking-wider text-muted">
               <li>
