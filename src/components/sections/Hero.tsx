@@ -23,21 +23,6 @@ export function Hero() {
       </div>
 
       <Container className="relative py-12 md:py-20">
-        {/* Terminal window chrome — fades & drifts up */}
-        <div className="hero-chrome mono mb-10 flex items-center justify-between border border-border-bright bg-surface px-4 py-2.5">
-          <div className="flex items-center gap-2">
-            <span aria-hidden="true" className="size-2.5 border border-accent" />
-            <span aria-hidden="true" className="size-2.5 border border-muted" />
-            <span aria-hidden="true" className="size-2.5 border border-muted" />
-          </div>
-          <p className="text-[10px] uppercase tracking-wider text-muted">
-            vaulted.sys · /usr/local/bin/vaulted — 80×24
-          </p>
-          <p className="mono hidden text-[10px] uppercase tracking-wider text-accent md:block">
-            ● ONLINE
-          </p>
-        </div>
-
         <div className="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           {/* Left column — text content */}
           <div className="hero-text relative">

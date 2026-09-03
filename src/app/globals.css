@@ -228,16 +228,6 @@ body {
   will-change: transform;
 }
 
-#top .hero-chrome {
-  transform: translate3d(
-    0,
-    calc(var(--hero-scroll) * -6vh),
-    0
-  );
-  opacity: calc(1 - var(--hero-scroll) * 1.6);
-  will-change: transform, opacity;
-}
-
 #top .hero-text {
   transform: translate3d(
     0,
@@ -260,7 +250,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   #top .hero-bg,
-  #top .hero-chrome,
   #top .hero-text,
   #top .hero-card {
     transform: none !important;
