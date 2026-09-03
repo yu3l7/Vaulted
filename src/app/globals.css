@@ -17,6 +17,16 @@
   --accent-fg: #000000;
   --accent-2: #39ff14;          /* acid green — secondary */
   --accent-2-fg: #000000;
+
+  /* Motion — one authored curve, applied site-wide */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 600ms;
+
+  /* Glow tokens — accent-aware shadows, no arbitrary hex inline */
+  --glow-accent: 0 0 24px rgb(0 240 240 / 0.32);
+  --glow-accent-strong: 0 0 40px rgb(0 240 240 / 0.45);
 }
 
 @theme inline {
@@ -34,6 +44,12 @@
   --font-display: var(--font-space-grotesk), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
   --font-sans: var(--font-space-grotesk), system-ui, sans-serif;
+  --ease-out-expo: var(--ease-out-expo);
+  --duration-fast: var(--duration-fast);
+  --duration-base: var(--duration-base);
+  --duration-slow: var(--duration-slow);
+  --glow-accent: var(--glow-accent);
+  --glow-accent-strong: var(--glow-accent-strong);
 }
 
 * {
@@ -79,6 +95,53 @@ body {
 /* Mono body for terminal feel */
 .mono {
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+/* Card hover — token-driven transform + border + glow */
+.card-transition {
+  transition:
+    transform var(--duration-base) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    box-shadow var(--duration-base) var(--ease-out-expo);
+  will-change: transform;
+}
+.card-transition:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow-accent);
+}
+
+/* Staggered card entrance — single authored moment */
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#products .grid > * {
+  animation: card-enter var(--duration-slow) var(--ease-out-expo) both;
+  animation-delay: calc(var(--card-index, 0) * 80ms);
+}
+
+/* Category filter — pure CSS via :has() + radio inputs */
+#products:has(#cat-accounts:checked) [data-cat]:not([data-cat="Accounts"]),
+#products:has(#cat-vbucks:checked) [data-cat]:not([data-cat="V-Bucks"]),
+#products:has(#cat-skins:checked) [data-cat]:not([data-cat="Skins"]),
+#products:has(#cat-boosting:checked) [data-cat]:not([data-cat="Boosting"]),
+#products:has(#cat-coaching:checked) [data-cat]:not([data-cat="Coaching"]),
+#products:has(#cat-configs:checked) [data-cat]:not([data-cat="Configs"]) {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #products .grid > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

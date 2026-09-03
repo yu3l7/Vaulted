@@ -1,9 +1,20 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { ArrowRight, Check } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { products, type Product } from "@/lib/content";
 import { ProductVisual } from "@/components/product-visuals";
 import { cn } from "@/lib/cn";
+
+const CATEGORIES = [
+  { id: "all", label: "All" },
+  { id: "accounts", label: "Accounts" },
+  { id: "vbucks", label: "V-Bucks" },
+  { id: "skins", label: "Skins" },
+  { id: "boosting", label: "Boosting" },
+  { id: "coaching", label: "Coaching" },
+  { id: "configs", label: "Configs" },
+] as const;
 
 const VARIANTS: Record<string, string> = {
   "stacked-account": "NA / EU · Full access",
@@ -34,11 +45,19 @@ function PriceLine({ price }: { price: string }) {
   );
 }
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({
+  product,
+  index,
+}: {
+  product: Product;
+  index: number;
+}) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group relative flex flex-col overflow-hidden border border-border bg-surface transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent hover:border-accent"
+      data-cat={product.category}
+      style={{ "--card-index": index } as CSSProperties}
+      className="group card-transition relative flex flex-col overflow-hidden border border-border bg-surface hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       {/* Visual */}
       <div className="relative aspect-[4/3] overflow-hidden bg-bg">
@@ -97,9 +116,40 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 
+function CategoryFilter() {
+  return (
+    <div
+      role="radiogroup"
+      aria-label="Filter products by category"
+      className="mt-10 flex flex-wrap gap-2"
+    >
+      {CATEGORIES.map((c) => (
+        <span key={c.id}>
+          <input
+            type="radio"
+            name="cat"
+            id={`cat-${c.id}`}
+            defaultChecked={c.id === "all"}
+            className="sr-only peer"
+          />
+          <label
+            htmlFor={`cat-${c.id}`}
+            className="inline-flex h-9 cursor-pointer items-center border border-border-bright bg-fg/5 px-4 text-xs font-medium uppercase tracking-wider text-fg transition-colors peer-checked:border-accent peer-checked:bg-accent peer-checked:text-accent-fg peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent hover:border-accent"
+          >
+            {c.label}
+          </label>
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function Products() {
   return (
-    <section id="products" className="relative border-b border-border bg-bg py-20 md:py-28">
+    <section
+      id="products"
+      className="relative border-b border-border bg-bg py-20 md:py-28"
+    >
       <Container>
         {/* Header */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -127,10 +177,13 @@ export function Products() {
           </Link>
         </div>
 
+        {/* Category filter — pure CSS via :has() */}
+        <CategoryFilter />
+
         {/* Grid — uniform 6-card layout */}
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((p) => (
-            <ProductCard key={p.id} product={p} />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {products.map((p, i) => (
+            <ProductCard key={p.id} product={p} index={i} />
           ))}
         </div>
       </Container>
