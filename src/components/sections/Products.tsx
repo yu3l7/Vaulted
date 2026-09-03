@@ -38,7 +38,7 @@ function FeaturedCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group relative flex flex-col overflow-hidden border border-accent bg-surface lg:col-span-2 lg:flex-row"
+      className="group relative flex flex-col overflow-hidden border border-accent bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent lg:col-span-2 lg:flex-row"
     >
       {/* Visual */}
       <div className="relative aspect-[4/5] overflow-hidden bg-bg lg:aspect-auto lg:w-1/2">
@@ -109,7 +109,7 @@ function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group relative flex flex-col overflow-hidden border border-border bg-surface transition-colors hover:border-accent"
+      className="group relative flex flex-col overflow-hidden border border-border bg-surface transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent hover:border-accent"
     >
       {/* Visual */}
       <div className="relative aspect-[4/3] overflow-hidden bg-bg">
@@ -193,7 +193,7 @@ export function Products() {
 
           <Link
             href="#contact"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-accent"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent hover:text-accent"
           >
             View all products
             <ArrowRight className="size-3.5" />
