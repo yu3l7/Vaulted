@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "@/components/icons";
+import { ArrowRight, Check } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { products, type Product } from "@/lib/content";
 import { ProductVisual } from "@/components/product-visuals";
@@ -14,17 +14,37 @@ const VARIANTS: Record<string, string> = {
   "creative-config": "K&M + controller · Lifetime updates",
 };
 
+const DELIVERY: Record<string, string> = {
+  "stacked-account": "Same-day delivery",
+  "vbucks-13500": "5–60 min delivery",
+  "rare-skin-bundle": "Same-day delivery",
+  "boost-battle-pass": "Starts within 12 hours",
+  "coaching-1on1": "Booked on your schedule",
+  "creative-config": "Instant download",
+};
+
+function PriceLine({ price }: { price: string }) {
+  const isFrom = price.startsWith("from ");
+  const value = price.replace("from ", "");
+  return (
+    <p className="text-xs text-muted">
+      {isFrom ? "From " : ""}
+      <span className="display text-xl tracking-tight text-fg">{value}</span>
+    </p>
+  );
+}
+
 function FeaturedCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group glow-cyan relative flex flex-col overflow-hidden border border-accent bg-surface lg:col-span-2 lg:flex-row"
+      className="group relative flex flex-col overflow-hidden border border-accent bg-surface lg:col-span-2 lg:flex-row"
     >
       {/* Visual */}
       <div className="relative aspect-[4/5] overflow-hidden bg-bg lg:aspect-auto lg:w-1/2">
         <ProductVisual
           id={product.id}
-          className="absolute inset-0 size-full transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          className="absolute inset-0 size-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
         />
         <div
           aria-hidden="true"
@@ -35,18 +55,18 @@ function FeaturedCard({ product }: { product: Product }) {
           }}
         />
         {product.badge && (
-          <span className="mono absolute left-4 top-4 border border-accent bg-accent/15 px-2 py-1 text-[10px] uppercase tracking-wider text-accent backdrop-blur-sm">
-            [ {product.badge.toLowerCase()} ]
+          <span className="absolute left-4 top-4 rounded-full bg-accent px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-fg">
+            {product.badge}
           </span>
         )}
       </div>
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-7 md:p-10 lg:p-12">
-        <p className="label text-accent">
-          <span className="text-accent-2">▸</span> {product.category.toLowerCase()} · featured
+        <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+          {product.category}
         </p>
-        <h3 className="display mt-4 text-balance text-3xl tracking-tight md:text-4xl lg:text-5xl">
+        <h3 className="display mt-3 text-balance text-3xl tracking-tight md:text-4xl lg:text-5xl">
           {product.name}
         </h3>
         <p className="mono mt-2 text-[10px] uppercase tracking-wider text-muted">
@@ -55,23 +75,29 @@ function FeaturedCard({ product }: { product: Product }) {
         <p className="mt-5 max-w-xl text-pretty text-base text-muted md:text-lg">
           {product.tagline}
         </p>
-        <ul className="mono mt-6 grid gap-2 text-[11px] uppercase tracking-wider text-muted sm:grid-cols-2">
+        <ul className="mt-6 grid gap-2.5 text-sm text-fg sm:grid-cols-2">
           {product.highlights.slice(0, 4).map((h) => (
             <li key={h} className="flex items-start gap-2">
-              <span className="text-accent">▸</span>
+              <Check className="mt-0.5 size-4 shrink-0 text-accent" />
               <span>{h}</span>
             </li>
           ))}
         </ul>
-        <div className="mt-auto flex items-end justify-between gap-4 pt-8">
-          <div>
-            <p className="label text-muted">starting_at</p>
-            <p className="display mt-1 text-3xl tracking-tight md:text-4xl">
-              {product.price.replace("from ", "")}
+        <div className="mt-auto flex items-end justify-between gap-6 pt-8">
+          <div className="space-y-1">
+            <p className="text-xs text-muted">
+              {product.price.startsWith("from ") ? "From " : ""}
+              <span className="display text-3xl tracking-tight text-fg md:text-4xl">
+                {product.price.replace("from ", "")}
+              </span>
+            </p>
+            <p className="text-xs text-muted">
+              {DELIVERY[product.id] ?? "Same-day delivery"}
             </p>
           </div>
-          <span className="mono inline-flex items-center gap-2 border border-accent bg-accent/10 px-5 py-3 text-xs uppercase tracking-wider text-accent transition-all group-hover:bg-accent/20 group-hover:shadow-[0_0_24px_rgb(0_240_240/0.35)]">
-            [ view_product <ArrowRight className="size-3.5" /> ]
+          <span className="inline-flex items-center gap-2 bg-accent px-5 py-3 text-sm font-semibold text-accent-fg transition-opacity group-hover:opacity-90">
+            View details
+            <ArrowRight className="size-4" />
           </span>
         </div>
       </div>
@@ -83,58 +109,58 @@ function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group relative flex flex-col overflow-hidden border border-border-bright bg-surface transition-colors hover:border-accent"
+      className="group relative flex flex-col overflow-hidden border border-border bg-surface transition-colors hover:border-accent"
     >
       {/* Visual */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-bg">
+      <div className="relative aspect-[4/3] overflow-hidden bg-bg">
         <ProductVisual
           id={product.id}
-          className="absolute inset-0 size-full transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          className="absolute inset-0 size-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
         />
         {product.badge && (
           <span
             className={cn(
-              "mono absolute right-3 top-3 px-2 py-1 text-[10px] uppercase tracking-wider backdrop-blur-sm",
+              "absolute right-3 top-3 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider",
               product.badge === "Popular"
-                ? "border border-accent bg-accent/15 text-accent"
-                : "border border-accent-2 bg-accent-2/15 text-accent-2",
+                ? "bg-accent text-accent-fg"
+                : "border border-accent-2 bg-accent-2/10 text-accent-2",
             )}
           >
-            [ {product.badge.toLowerCase()} ]
+            {product.badge}
           </span>
         )}
       </div>
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-5 md:p-6">
-        <p className="label text-accent">
-          <span className="text-accent-2">▸</span> {product.category.toLowerCase()}
+        <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+          {product.category}
         </p>
-        <div className="mt-3 flex items-center gap-3">
-          <h3 className="display text-xl tracking-tight md:text-2xl">
-            {product.name}
-          </h3>
-        </div>
-        <p className="mono mt-2 text-[10px] uppercase tracking-wider text-muted">
+        <h3 className="display mt-2 text-xl tracking-tight md:text-2xl">
+          {product.name}
+        </h3>
+        <p className="mono mt-1.5 text-[10px] uppercase tracking-wider text-muted">
           {VARIANTS[product.id] ?? product.category}
         </p>
         <p className="mt-3 text-sm text-muted">{product.tagline}</p>
-        <ul className="mono mt-4 space-y-1.5 text-[11px] uppercase tracking-wider text-muted">
+        <ul className="mt-4 space-y-1.5 text-sm text-fg">
           {product.highlights.slice(0, 3).map((h) => (
-            <li key={h}>
-              <span className="text-accent">▸</span> {h}
+            <li key={h} className="flex items-start gap-2">
+              <Check className="mt-0.5 size-3.5 shrink-0 text-accent" />
+              <span>{h}</span>
             </li>
           ))}
         </ul>
-        <div className="mt-auto flex items-end justify-between gap-4 pt-6">
-          <div>
-            <p className="label text-muted">starting_at</p>
-            <p className="display mt-1 text-2xl tracking-tight">
-              {product.price.replace("from ", "")}
+        <div className="mt-auto flex items-end justify-between gap-3 pt-5">
+          <div className="space-y-0.5">
+            <PriceLine price={product.price} />
+            <p className="text-[11px] text-muted">
+              {DELIVERY[product.id] ?? "Same-day delivery"}
             </p>
           </div>
-          <span className="mono inline-flex items-center gap-1 border border-border-bright bg-fg/5 px-3 py-2 text-[11px] uppercase tracking-wider text-fg transition-all group-hover:border-accent group-hover:text-accent">
-            [ view ]
+          <span className="inline-flex items-center gap-1.5 border border-border-bright bg-fg/5 px-3 py-2 text-xs font-medium text-fg transition-colors group-hover:border-accent group-hover:text-accent">
+            View
+            <ArrowRight className="size-3.5" />
           </span>
         </div>
       </div>
@@ -167,15 +193,15 @@ export function Products() {
 
           <Link
             href="#contact"
-            className="mono group inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted transition-colors hover:text-accent"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-accent"
           >
-            view_all
-            <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+            View all products
+            <ArrowRight className="size-3.5" />
           </Link>
         </div>
 
         {/* Grid */}
-        <div className="mt-14 grid gap-px bg-border-bright md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {featured && <FeaturedCard product={featured} />}
           {rest.map((p) => (
             <ProductCard key={p.id} product={p} />
