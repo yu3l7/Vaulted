@@ -34,77 +34,6 @@ function PriceLine({ price }: { price: string }) {
   );
 }
 
-function FeaturedCard({ product }: { product: Product }) {
-  return (
-    <Link
-      href={`/products/${product.slug}`}
-      className="group relative flex flex-col overflow-hidden border border-accent bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent lg:col-span-2 lg:flex-row"
-    >
-      {/* Visual */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-bg lg:aspect-auto lg:w-1/2">
-        <ProductVisual
-          id={product.id}
-          className="absolute inset-0 size-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 hidden lg:block"
-          style={{
-            background:
-              "linear-gradient(to right, transparent 60%, var(--surface) 100%)",
-          }}
-        />
-        {product.badge && (
-          <span className="absolute left-4 top-4 rounded-full bg-accent px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-fg">
-            {product.badge}
-          </span>
-        )}
-      </div>
-
-      {/* Content */}
-      <div className="flex flex-1 flex-col p-7 md:p-10 lg:p-12">
-        <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-          {product.category}
-        </p>
-        <h3 className="display mt-3 text-balance text-3xl tracking-tight md:text-4xl lg:text-5xl">
-          {product.name}
-        </h3>
-        <p className="mono mt-2 text-[10px] uppercase tracking-wider text-muted">
-          {VARIANTS[product.id] ?? product.category}
-        </p>
-        <p className="mt-5 max-w-xl text-pretty text-base text-muted md:text-lg">
-          {product.tagline}
-        </p>
-        <ul className="mt-6 grid gap-2.5 text-sm text-fg sm:grid-cols-2">
-          {product.highlights.slice(0, 4).map((h) => (
-            <li key={h} className="flex items-start gap-2">
-              <Check className="mt-0.5 size-4 shrink-0 text-accent" />
-              <span>{h}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-auto flex items-end justify-between gap-6 pt-8">
-          <div className="space-y-1">
-            <p className="text-xs text-muted">
-              {product.price.startsWith("from ") ? "From " : ""}
-              <span className="display text-3xl tracking-tight text-fg md:text-4xl">
-                {product.price.replace("from ", "")}
-              </span>
-            </p>
-            <p className="text-xs text-muted">
-              {DELIVERY[product.id] ?? "Same-day delivery"}
-            </p>
-          </div>
-          <span className="inline-flex items-center gap-2 bg-accent px-5 py-3 text-sm font-semibold text-accent-fg transition-opacity group-hover:opacity-90">
-            View details
-            <ArrowRight className="size-4" />
-          </span>
-        </div>
-      </div>
-    </Link>
-  );
-}
-
 function ProductCard({ product }: { product: Product }) {
   return (
     <Link
@@ -169,8 +98,6 @@ function ProductCard({ product }: { product: Product }) {
 }
 
 export function Products() {
-  const [featured, ...rest] = products;
-
   return (
     <section id="products" className="relative border-b border-border bg-bg py-20 md:py-28">
       <Container>
@@ -200,10 +127,9 @@ export function Products() {
           </Link>
         </div>
 
-        {/* Grid */}
-        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {featured && <FeaturedCard product={featured} />}
-          {rest.map((p) => (
+        {/* Grid — uniform 6-card layout */}
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {products.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
