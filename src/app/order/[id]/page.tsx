@@ -27,7 +27,8 @@ export default async function OrderPage({ params }: Props) {
       <Container>
         {/* Header */}
         <div className="mb-12">
-          <nav className="mono mb-6 flex items-center gap-2 text-[10px] uppercase tracking-wider text-muted">
+          {/* Breadcrumb */}
+          <nav className="mono mb-8 flex items-center gap-2 text-[10px] uppercase tracking-wider text-muted">
             <Link href="/" className="hover:text-accent">
               home
             </Link>
@@ -38,21 +39,6 @@ export default async function OrderPage({ params }: Props) {
             <span className="text-border-bright">/</span>
             <span className="text-fg">order</span>
           </nav>
-
-          {/* Terminal window chrome */}
-          <div className="mono mb-8 flex items-center justify-between border border-border-bright bg-surface px-4 py-2.5">
-            <div className="flex items-center gap-2">
-              <span aria-hidden="true" className="size-2.5 border border-accent" />
-              <span aria-hidden="true" className="size-2.5 border border-muted" />
-              <span aria-hidden="true" className="size-2.5 border border-muted" />
-            </div>
-            <p className="text-[10px] uppercase tracking-wider text-muted">
-              vaulted.sys · order_terminal · live_drop
-            </p>
-            <p className="hidden text-[10px] uppercase tracking-wider text-accent md:block">
-              ● secure
-            </p>
-          </div>
 
           <p className="label text-accent">
             <span className="text-accent-2">▸</span> /order/{product.slug}

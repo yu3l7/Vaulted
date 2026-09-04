@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/cn";
 
 const SECTIONS = [
@@ -20,15 +21,20 @@ const SECTIONS = [
  *   last section whose top edge has crossed 30% of viewport height.
  * - On active-change: briefly applies `.scrollspy-glitch-flash` to the
  *   newly active row (450ms RGB-shift + jitter), then auto-removes.
- * - Hidden on mobile (< lg). Clicking jumps via the section's id anchor.
+ * - Hidden on mobile (< lg) AND on non-home pages (/order, /products).
+ * - Clicking jumps via the section's id anchor.
  */
 export function Scrollspy() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [active, setActive] = useState<string>("top");
+  const [flashAt, setFlashAt] = useState<number>(0);
   const [flashingId, setFlashingId] = useState<string | null>(null);
   const prevActive = useRef(active);
 
   // Scroll → active section
   useEffect(() => {
+    if (!isHome) return;
     const compute = () => {
       const threshold = window.innerHeight * 0.3;
       let current = SECTIONS[0].id;
@@ -50,21 +56,28 @@ export function Scrollspy() {
       window.removeEventListener("scroll", compute);
       window.removeEventListener("resize", compute);
     };
-  }, []);
+  }, [isHome]);
 
-  // Active change → glitch flash on the newly active item
+  // Active change → schedule a glitch flash on the newly active item
   useEffect(() => {
     if (prevActive.current === active) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      prevActive.current = active;
-      return;
-    }
-    setFlashingId(active);
     prevActive.current = active;
-    const t = window.setTimeout(() => setFlashingId(null), 500);
-    return () => window.clearTimeout(t);
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+    /* eslint-disable react-hooks/set-state-in-effect */
+    setFlashAt(Date.now());
+    setFlashingId(active);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, [active]);
 
+  // Auto-clear the glitch flash after 500ms
+  useEffect(() => {
+    if (!flashingId) return;
+    const t = window.setTimeout(() => setFlashingId(null), 500);
+    return () => window.clearTimeout(t);
+  }, [flashAt, flashingId]);
+
+  if (!isHome) return null;
   return (
     <nav
       aria-label="Section navigation"

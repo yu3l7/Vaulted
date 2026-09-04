@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Check } from "@/components/icons";
+import { Select } from "@/components/ui/Select";
 import { cn } from "@/lib/cn";
 
 type Variant = { id: string; name: string; price: string; description?: string };
@@ -214,18 +215,18 @@ export function OrderForm({
               />
             </Field>
             <Field label="region *" htmlFor="region">
-              <select
+              <Select
                 id="region"
                 value={region}
-                onChange={(e) => setRegion(e.target.value)}
-                className="mono w-full border border-border-bright bg-bg px-4 py-3 text-sm uppercase tracking-wider text-fg focus:border-accent focus:outline-none"
-              >
-                <option value="NA">NA · North America</option>
-                <option value="EU">EU · Europe</option>
-                <option value="APAC">APAC · Asia-Pacific</option>
-                <option value="SA">SA · South America</option>
-                <option value="OCE">OCE · Oceania</option>
-              </select>
+                onChange={setRegion}
+                options={[
+                  { value: "NA", label: "NA · North America" },
+                  { value: "EU", label: "EU · Europe" },
+                  { value: "APAC", label: "APAC · Asia-Pacific" },
+                  { value: "SA", label: "SA · South America" },
+                  { value: "OCE", label: "OCE · Oceania" },
+                ]}
+              />
             </Field>
             <Field label="notes (optional)" htmlFor="notes" className="sm:col-span-2">
               <textarea

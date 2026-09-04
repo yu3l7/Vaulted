@@ -20,6 +20,12 @@ export const ArrowRight = (props: IconProps) => (
   </svg>
 );
 
+export const ChevronDown = (props: IconProps) => (
+  <svg {...base} {...props}>
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
 export const Shield = (props: IconProps) => (
   <svg {...base} {...props}>
     <path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z" />
