@@ -139,11 +139,6 @@ function MobileNavDrawer({
             [DISCORD]
           </a>
         </nav>
-
-        <footer className="mobile-nav__foot mono">
-          <span>vaulted-rose.vercel.app</span>
-          <span className="text-accent-2">[ live ]</span>
-        </footer>
       </aside>
     </div>
   );

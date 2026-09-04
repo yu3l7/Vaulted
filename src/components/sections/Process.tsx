@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { steps } from "@/lib/content";
+import { ProcessRail } from "@/components/sections/ProcessRail";
 
 const TRACE_PROMPTS = ["awaiting_input", "tx_confirmed", "live_drop"] as const;
 
@@ -10,6 +11,8 @@ export function Process() {
 
       className="relative border-b border-border bg-bg py-20 md:py-28"
     >
+      {/* Measures node positions and sets --rail-top / --rail-bottom */}
+      <ProcessRail />
       <Container>
         <div className="max-w-2xl">
           <p className="label text-accent">
@@ -40,7 +43,11 @@ export function Process() {
               >
                 <div className="process-trace__gutter">
                   <span className="process-trace__index mono">step_{stepNumber}</span>
-                  <span aria-hidden="true" className="process-trace__node">
+                  <span
+                    aria-hidden="true"
+                    className="process-trace__node"
+                    data-node="true"
+                  >
                     <span className="process-trace__node-pulse" />
                   </span>
                 </div>

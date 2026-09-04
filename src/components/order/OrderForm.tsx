@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, Check } from "@/components/icons";
+import { Check } from "@/components/icons";
 import { cn } from "@/lib/cn";
 
 type Variant = { id: string; name: string; price: string; description?: string };
@@ -17,12 +18,36 @@ type Props = {
 };
 
 const PAYMENT_METHODS = [
-  { id: "stripe", label: "stripe", note: "card · apple pay · google pay" },
-  { id: "paypal", label: "paypal", note: "instant" },
-  { id: "usdt", label: "usdt", note: "erc20 · trc20" },
-  { id: "eth", label: "eth", note: "ethereum mainnet" },
-  { id: "cashapp", label: "cashapp", note: "$cashtag" },
-  { id: "discord", label: "discord_only", note: "settle in ticket" },
+  {
+    id: "stripe",
+    label: "Stripe",
+    note: "card · visa · mc · amex",
+    icon: "/payment/stripe.png",
+  },
+  {
+    id: "paypal",
+    label: "PayPal",
+    note: "instant",
+    icon: "/payment/paypal.png",
+  },
+  {
+    id: "apple_pay",
+    label: "Apple Pay",
+    note: "touch / face id",
+    icon: "/payment/apple-pay.png",
+  },
+  {
+    id: "ltc",
+    label: "Litecoin",
+    note: "ltc · mainnet",
+    icon: "/payment/ltc.svg",
+  },
+  {
+    id: "btc",
+    label: "Bitcoin",
+    note: "btc · mainnet",
+    icon: "/payment/btc.svg",
+  },
 ] as const;
 
 type PaymentMethod = (typeof PAYMENT_METHODS)[number]["id"];
@@ -221,14 +246,14 @@ export function OrderForm({
             <span className="text-accent">[ 03 ]</span> payment_method
           </legend>
           <h2 className="display mt-3 text-2xl tracking-tight md:text-3xl">
-            How you'll pay.
+            How you&apos;ll pay.
           </h2>
           <div className="mt-6 grid gap-2 sm:grid-cols-2">
             {PAYMENT_METHODS.map((m) => (
               <label
                 key={m.id}
                 className={cn(
-                  "mono flex cursor-pointer items-center justify-between gap-3 border bg-surface px-4 py-3 text-xs uppercase tracking-wider transition-colors",
+                  "mono flex cursor-pointer items-center gap-3 border bg-surface px-4 py-3 text-xs uppercase tracking-wider transition-colors",
                   payment === m.id
                     ? "border-accent bg-accent/5"
                     : "border-border-bright hover:border-fg/40",
@@ -242,23 +267,30 @@ export function OrderForm({
                   onChange={() => setPayment(m.id)}
                   className="sr-only"
                 />
-                <div className="flex items-center gap-3">
-                  <span
-                    className={cn(
-                      "flex size-4 shrink-0 items-center justify-center border",
-                      payment === m.id
-                        ? "border-accent bg-accent"
-                        : "border-border-bright",
-                    )}
-                  >
-                    {payment === m.id && (
-                      <Check className="size-3 text-bg" strokeWidth={3} />
-                    )}
-                  </span>
-                  <div>
-                    <p className="text-fg">{m.label}</p>
-                    <p className="mt-0.5 text-[9px] text-muted">{m.note}</p>
-                  </div>
+                <span
+                  className={cn(
+                    "flex size-4 shrink-0 items-center justify-center border",
+                    payment === m.id
+                      ? "border-accent bg-accent"
+                      : "border-border-bright",
+                  )}
+                >
+                  {payment === m.id && (
+                    <Check className="size-3 text-bg" strokeWidth={3} />
+                  )}
+                </span>
+                <span className="flex size-8 shrink-0 items-center justify-center border border-border bg-bg p-1">
+                  <Image
+                    src={m.icon}
+                    alt=""
+                    width={28}
+                    height={28}
+                    className="size-7 object-contain"
+                  />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-fg">{m.label}</p>
+                  <p className="mt-0.5 text-[9px] text-muted">{m.note}</p>
                 </div>
               </label>
             ))}

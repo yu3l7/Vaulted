@@ -158,12 +158,23 @@ body {
 /* ───────── Hero effects ───────── */
 
 /* ASCII / dotted grid backdrop */
+@keyframes ascii-drift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 56px 56px, 56px 56px;
+  }
+}
+
 .ascii-grid {
   background-image:
     linear-gradient(to right, var(--accent) 1px, transparent 1px),
     linear-gradient(to bottom, var(--accent) 1px, transparent 1px);
   background-size: 28px 28px;
   opacity: 0.06;
+  animation: ascii-drift 24s linear infinite;
+  will-change: background-position;
 }
 
 .dot-grid {
@@ -652,20 +663,6 @@ body {
   overflow-y: auto;
 }
 
-.mobile-nav__foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
-  border-top: 1px solid var(--border-bright);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  flex-shrink: 0;
-}
-
 .mobile-nav__link {
   position: relative;
   display: grid;
@@ -1041,6 +1038,25 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  --rail-top: 24px;
+  --rail-bottom: 24px;
+}
+
+.process-trace::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  width: 1px;
+  top: var(--rail-top, 24px);
+  bottom: var(--rail-bottom, 24px);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(0 240 240 / 0.45) 8%,
+    rgb(0 240 240 / 0.45) 92%,
+    transparent
+  );
+  pointer-events: none;
 }
 
 .process-trace__row {
@@ -1060,29 +1076,7 @@ body {
 }
 
 .process-trace__gutter::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgb(0 240 240 / 0.45) 14%,
-    rgb(0 240 240 / 0.45) 86%,
-    transparent
-  );
-  z-index: 0;
-}
-
-.process-trace__row:first-child .process-trace__gutter::before {
-  top: 16px;
-}
-
-.process-trace__row:last-child .process-trace__gutter::before {
-  bottom: 16px;
+  content: none;
 }
 
 .process-trace__index {
@@ -1225,6 +1219,10 @@ body {
 }
 
 @media (min-width: 768px) {
+  .process-trace::after {
+    left: 44px;
+  }
+
   .process-trace {
     gap: 1.5rem;
   }

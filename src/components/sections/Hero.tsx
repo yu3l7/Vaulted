@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "@/components/icons";
@@ -12,7 +15,23 @@ const STATS = [
   { label: "rating", value: "4.9★", tag: "612 VOUCHES" },
 ];
 
+function formatUtc(d: Date): string {
+  const h = String(d.getUTCHours()).padStart(2, "0");
+  const m = String(d.getUTCMinutes()).padStart(2, "0");
+  return `${h}:${m}`;
+}
+
 export function Hero() {
+  const [time, setTime] = useState<string>(() => formatUtc(new Date()));
+  const orderCount = 4_287;
+
+  useEffect(() => {
+    const tick = () => setTime(formatUtc(new Date()));
+    tick();
+    const id = window.setInterval(tick, 30_000);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <section
       id="top"
@@ -33,9 +52,10 @@ export function Hero() {
         <div className="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           {/* Left column — text content */}
           <div className="hero-text relative">
-            <p className="label text-accent">
-              <span className="text-accent-2">▸</span> last_updated 14:55 utc ·
-              orders.live
+            <p className="label text-accent" aria-live="polite">
+              <span className="text-accent-2">▸</span> hand_verified ·{" "}
+              <span className="hero-label__time" suppressHydrationWarning>{time}</span>{" "}
+              utc · live_drop [{orderCount.toLocaleString("en-US")}]
             </p>
 
             <h1 className="display glitch mt-8 text-balance text-5xl md:text-7xl lg:text-8xl">

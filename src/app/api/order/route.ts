@@ -6,11 +6,22 @@ export const runtime = "nodejs";
 const VALID_PAYMENTS = new Set([
   "stripe",
   "paypal",
-  "usdt",
-  "eth",
-  "cashapp",
-  "discord",
+  "apple_pay",
+  "ltc",
+  "btc",
 ]);
+
+const PAYMENT_LABELS: Record<string, string> = {
+  stripe: "Stripe",
+  paypal: "PayPal",
+  apple_pay: "Apple Pay",
+  ltc: "LTC · Litecoin",
+  btc: "BTC · Bitcoin",
+};
+
+function paymentLabel(id: string): string {
+  return PAYMENT_LABELS[id] ?? id;
+}
 
 function makeOrderId() {
   // VLT-XXXXX (5 alphanumeric, uppercase, ambiguous chars excluded)
@@ -88,7 +99,7 @@ export async function POST(req: Request) {
         fields.push({ name: "Price", value: price, inline: true });
       }
       fields.push(
-        { name: "Payment", value: payment, inline: true },
+        { name: "Payment", value: paymentLabel(payment), inline: true },
         { name: "Discord", value: `\`${discord.trim()}\``, inline: true },
         { name: "Email", value: email.trim(), inline: true },
         { name: "Region", value: region?.trim() || "—", inline: true },
