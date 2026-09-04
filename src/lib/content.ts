@@ -365,6 +365,9 @@ export type Vouch = {
   body: string;
   author: string;
   meta: string;
+  handle: string;
+  product: string;
+  orderId: string;
 };
 
 export const vouches: Vouch[] = [
@@ -372,16 +375,25 @@ export const vouches: Vouch[] = [
     body: "Got the stacked account in 20 minutes. Skins were exactly as advertised. Already on my second order.",
     author: "@kevinn_b",
     meta: "Stacked Account · verified",
+    handle: "kevinn.discord.gg",
+    product: "Stacked Account",
+    orderId: "0x9af1 · 4f31",
   },
   {
     body: "Coach broke down my build edits in a way no YouTube video ever did. Hit Champion next split.",
     author: "@maddie.q",
     meta: "Coaching 4× · verified",
+    handle: "maddie.q.psn",
+    product: "Coaching · 4 sessions",
+    orderId: "0x6c0d · 2b1a",
   },
   {
     body: "Battle Pass to tier 100 in two days, no sketchy logins. They sent clips of every milestone.",
     author: "@toasted__",
     meta: "Boosting · verified",
+    handle: "toasted__",
+    product: "Battle Pass Boost",
+    orderId: "0x4218 · 9d77",
   },
 ];
 
