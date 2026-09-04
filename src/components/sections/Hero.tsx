@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "@/components/icons";
-import { LiveFeed } from "@/components/sections/LiveFeed";
+import { ProductStage } from "@/components/sections/ProductStage";
 import { MeshOverlay } from "@/components/sections/MeshOverlay";
 import { HeroFx } from "@/components/sections/HeroFx";
 import { StatCounter } from "@/components/sections/StatCounter";
@@ -47,10 +47,8 @@ export function Hero() {
             </h1>
 
             <p className="mt-8 max-w-xl text-pretty text-base text-muted md:text-lg">
-              V-Bucks top-ups from 1k to 13,500, OG accounts with Renegade
-              Raider and Black Knight, rare skin bundles, Battle Pass boosts,
-              1-on-1 coaching, and loadout configs — verified by hand,
-              delivered to your Discord in minutes.
+              Hand-verified Fortnite supply: accounts, V-Bucks, skins, boosts,
+              coaching, and configs — delivered to your Discord in minutes.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -80,9 +78,9 @@ export function Hero() {
             </ul>
           </div>
 
-          {/* Right column — live activity feed */}
+          {/* Right column — curated product previews */}
           <div className="hero-card relative">
-            <LiveFeed />
+            <ProductStage />
           </div>
         </div>
       </Container>
