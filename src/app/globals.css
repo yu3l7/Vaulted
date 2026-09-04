@@ -876,27 +876,11 @@ body {
   gap: 1.25rem;
 }
 
-.process-trace::before {
-  content: "";
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 16px;
-  width: 1px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgb(0 240 240 / 0.4) 12%,
-    rgb(0 240 240 / 0.4) 88%,
-    transparent
-  );
-}
-
 .process-trace__row {
   position: relative;
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 1.25rem;
+  grid-template-columns: 48px 1fr;
+  gap: 1rem;
   align-items: stretch;
 }
 
@@ -906,6 +890,32 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 4px;
+}
+
+.process-trace__gutter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(0 240 240 / 0.45) 14%,
+    rgb(0 240 240 / 0.45) 86%,
+    transparent
+  );
+  z-index: 0;
+}
+
+.process-trace__row:first-child .process-trace__gutter::before {
+  top: 16px;
+}
+
+.process-trace__row:last-child .process-trace__gutter::before {
+  bottom: 16px;
 }
 
 .process-trace__index {
@@ -919,6 +929,7 @@ body {
 
 .process-trace__node {
   position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -926,7 +937,6 @@ body {
   height: 16px;
   border: 1px solid var(--accent);
   background: var(--bg);
-  z-index: 1;
 }
 
 .process-trace__node-pulse {
@@ -955,6 +965,7 @@ body {
   transition:
     border-color var(--duration-base) var(--ease-out-expo),
     box-shadow var(--duration-base) var(--ease-out-expo);
+  min-width: 0;
 }
 
 .process-trace__card:hover,
@@ -1049,10 +1060,6 @@ body {
 @media (min-width: 768px) {
   .process-trace {
     gap: 1.5rem;
-  }
-
-  .process-trace::before {
-    left: 24px;
   }
 
   .process-trace__row {
@@ -1180,10 +1187,19 @@ body {
   font-size: 11px;
   letter-spacing: 0.14em;
   color: var(--muted);
+  min-width: 0;
 }
 
 .vouch-ledger__order-id {
   color: var(--fg);
+  overflow-x: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.vouch-ledger__order-id::-webkit-scrollbar {
+  display: none;
 }
 
 .vouch-ledger__order-mark {
@@ -1196,6 +1212,15 @@ body {
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.vouch-ledger__product {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg);
+  overflow-wrap: anywhere;
 }
 
 @media (min-width: 768px) {
