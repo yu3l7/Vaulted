@@ -580,11 +580,17 @@ body {
    Mobile navigation drawer
    Slides in from the right with a scrim fade. Each nav link
    staggers in after the panel settles.
+
+   The drawer is portaled to <body> so it escapes the sticky
+   header's stacking context. The high z-index + isolation
+   guarantees the panel paints above every other element.
    ────────────────────────────────────────────────────── */
 
 .mobile-nav {
   pointer-events: none;
   visibility: hidden;
+  z-index: 60;
+  isolation: isolate;
 }
 
 .mobile-nav--open {
