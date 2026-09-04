@@ -34,19 +34,19 @@ const PAYMENT_METHODS = [
     id: "apple_pay",
     label: "Apple Pay",
     note: "touch / face id",
-    icon: "/payment/apple-pay.png",
+    icon: "/payment/apple-pay.svg",
   },
   {
     id: "ltc",
     label: "Litecoin",
     note: "ltc · mainnet",
-    icon: "/payment/ltc.svg",
+    icon: "/payment/ltc.png",
   },
   {
     id: "btc",
     label: "Bitcoin",
     note: "btc · mainnet",
-    icon: "/payment/btc.svg",
+    icon: "/payment/btc.webp",
   },
 ] as const;
 
