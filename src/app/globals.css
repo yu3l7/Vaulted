@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────
-   Cyber Arcade — Direction B
-   Space Grotesk + JetBrains Mono · electric cyan + acid green
+   Synthwave Dusk — Theme A
+   Unbounded + IBM Plex Mono · plasma magenta + plasma cyan
    ───────────────────────────────────────────────────────────── */
 
 :root {
-  --bg: #000000;
-  --fg: #fafafa;
-  --muted: #8a8a8a;
-  --surface: #0a0a0a;
-  --surface-2: #121214;
-  --border: #1f1f23;
-  --border-bright: #2a2a30;
-  --accent: #00f0f0;            /* electric cyan — primary */
-  --accent-fg: #000000;
-  --accent-2: #39ff14;          /* acid green — secondary */
-  --accent-2-fg: #000000;
+  --bg: #0a0a1f;
+  --fg: #f4f1ff;
+  --muted: #8b85a8;
+  --surface: #11112b;
+  --surface-2: #181838;
+  --border: #232347;
+  --border-bright: #34345f;
+  --accent: #ff2d9d;            /* plasma magenta — primary */
+  --accent-fg: #0a0a1f;
+  --accent-2: #00e5ff;          /* plasma cyan — secondary */
+  --accent-2-fg: #0a0a1f;
 
   /* Motion — one authored curve, applied site-wide */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -25,8 +25,8 @@
   --duration-slow: 600ms;
 
   /* Glow tokens — accent-aware shadows, no arbitrary hex inline */
-  --glow-accent: 0 0 24px rgb(0 240 240 / 0.32);
-  --glow-accent-strong: 0 0 40px rgb(0 240 240 / 0.45);
+  --glow-accent: 0 0 24px rgb(255 45 157 / 0.35);
+  --glow-accent-strong: 0 0 40px rgb(255 45 157 / 0.5);
 }
 
 @theme inline {
@@ -193,11 +193,11 @@ body {
 .coordinate-field {
   background-image:
     /* horizontal hairline through each + */
-    linear-gradient(to right, transparent 0, transparent 30px, rgb(0 240 240 / 0.18) 30px, rgb(0 240 240 / 0.18) 34px, transparent 34px, transparent 64px),
+    linear-gradient(to right, transparent 0, transparent 30px, rgb(255 45 157 / 0.18) 30px, rgb(255 45 157 / 0.18) 34px, transparent 34px, transparent 64px),
     /* vertical hairline through each + */
-    linear-gradient(to bottom, transparent 0, transparent 30px, rgb(0 240 240 / 0.18) 30px, rgb(0 240 240 / 0.18) 34px, transparent 34px, transparent 64px),
+    linear-gradient(to bottom, transparent 0, transparent 30px, rgb(255 45 157 / 0.18) 30px, rgb(255 45 157 / 0.18) 34px, transparent 34px, transparent 64px),
     /* the + dot itself */
-    radial-gradient(circle, rgb(0 240 240 / 0.55) 1.2px, transparent 1.6px);
+    radial-gradient(circle, rgb(255 45 157 / 0.55) 1.2px, transparent 1.6px);
   background-size:
     64px 64px,
     64px 64px,
@@ -260,8 +260,8 @@ body {
 }
 
 @keyframes pulse-cyan {
-  0%, 100% { box-shadow: 0 0 0 0 rgb(0 240 240 / 0.4); }
-  50% { box-shadow: 0 0 0 6px rgb(0 240 240 / 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgb(255 45 157 / 0.4); }
+  50% { box-shadow: 0 0 0 6px rgb(255 45 157 / 0); }
 }
 
 .pulse-cyan {
@@ -274,7 +274,7 @@ body {
 }
 .glow-cyan:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent), 0 0 24px rgb(0 240 240 / 0.2);
+  box-shadow: 0 0 0 1px var(--accent), 0 0 24px rgb(255 45 157 / 0.2);
 }
 
 /* Marquee */
@@ -1077,8 +1077,8 @@ body {
   background: linear-gradient(
     to bottom,
     transparent,
-    rgb(0 240 240 / 0.45) 8%,
-    rgb(0 240 240 / 0.45) 92%,
+    rgb(255 45 157 / 0.45) 8%,
+    rgb(255 45 157 / 0.45) 92%,
     transparent
   );
   pointer-events: none;

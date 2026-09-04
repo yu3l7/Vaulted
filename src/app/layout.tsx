@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Unbounded, JetBrains_Mono } from "next/font/google";
+import { Unbounded, IBM_Plex_Mono } from "next/font/google";
 import { Scrollspy } from "@/components/Scrollspy";
 import "./globals.css";
 
@@ -10,9 +10,10 @@ const unbounded = Unbounded({
   variable: "--font-space-grotesk",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700"],
   variable: "--font-jetbrains-mono",
 });
 
@@ -37,14 +38,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#0a0a1f",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${unbounded.variable} ${jetbrainsMono.variable}`}
+      className={`${unbounded.variable} ${ibmPlexMono.variable}`}
     >
       <body className="bg-bg text-fg min-h-screen flex flex-col antialiased">
         <div className="scroll-progress" aria-hidden="true" />
