@@ -66,15 +66,6 @@ export function Hero() {
 
             {/* Stats — HUD style with count-up animation */}
             <StatCounter stats={STATS} />
-
-            <ul className="mono mt-10 space-y-1.5 text-[11px] uppercase tracking-wider text-muted">
-              <li>
-                <span className="text-accent">▸</span> 7-day replacement guarantee
-              </li>
-              <li>
-                <span className="text-accent">▸</span> No password required
-              </li>
-            </ul>
           </div>
 
           {/* Right column — curated product previews */}

@@ -27,9 +27,6 @@ export default async function ProductPage({ params }: Props) {
   const product = findProduct(id);
   if (!product) notFound();
 
-  const Icon = product.Icon;
-  const related = products.filter((p) => p.id !== product.id).slice(0, 3);
-
   return (
     <>
       {/* Sticky mobile CTA bar */}
@@ -160,7 +157,7 @@ export default async function ProductPage({ params }: Props) {
                   <span className="text-accent-2">▸</span> description
                 </p>
                 <h2 className="display mt-3 text-3xl tracking-tight md:text-4xl">
-                  What's in the box.
+                  What&apos;s in the box.
                 </h2>
                 <div className="mt-6 space-y-4 text-pretty text-muted">
                   {product.description.split("\n\n").map((para, i) => (
@@ -297,39 +294,6 @@ export default async function ProductPage({ params }: Props) {
           </section>
         )}
 
-        {/* Related */}
-        <section className="relative bg-bg py-16 md:py-20">
-          <Container>
-            <p className="label text-accent">
-              <span className="text-accent-2">▸</span> related
-            </p>
-            <h2 className="display mt-3 text-3xl tracking-tight md:text-4xl">
-              You might also want.
-            </h2>
-            <ul className="mt-10 grid gap-px bg-border-bright md:grid-cols-3">
-              {related.map((p) => (
-                <li key={p.id} className="bg-surface">
-                  <Link
-                    href={`/products/${p.slug}`}
-                    className="group block p-7 transition-colors hover:bg-bg"
-                  >
-                    <p className="label text-accent">
-                      <span className="text-accent-2">▸</span>{" "}
-                      {p.category.toLowerCase()}
-                    </p>
-                    <h3 className="display mt-3 text-2xl tracking-tight">
-                      {p.name}
-                    </h3>
-                    <p className="mt-3 text-sm text-muted">{p.tagline}</p>
-                    <p className="mono mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-wider text-accent transition-transform group-hover:translate-x-0.5">
-                      view_product <ArrowRight className="size-3" />
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Container>
-        </section>
       </main>
     </>
   );
