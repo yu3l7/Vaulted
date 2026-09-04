@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Unbounded, JetBrains_Mono } from "next/font/google";
 import { Scrollspy } from "@/components/Scrollspy";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const unbounded = Unbounded({
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-space-grotesk",
 });
 
@@ -43,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`${unbounded.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-bg text-fg min-h-screen flex flex-col antialiased">
         <div className="scroll-progress" aria-hidden="true" />
