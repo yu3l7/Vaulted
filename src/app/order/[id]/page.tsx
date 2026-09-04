@@ -47,7 +47,7 @@ export default async function OrderPage({ params }: Props) {
               <span aria-hidden="true" className="size-2.5 border border-muted" />
             </div>
             <p className="text-[10px] uppercase tracking-wider text-muted">
-              vaulted.sys · /usr/local/bin/order.new — 80×24
+              vaulted.sys · order_terminal · live_drop
             </p>
             <p className="hidden text-[10px] uppercase tracking-wider text-accent md:block">
               ● secure
