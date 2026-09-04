@@ -183,6 +183,35 @@ body {
   opacity: 0.07;
 }
 
+/* Coordinate crosshair field — sparse '+' markers on a 64px grid.
+   Engineering-blueprint feel for the contact terminal. */
+@keyframes coordinate-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 64px 64px; }
+}
+
+.coordinate-field {
+  background-image:
+    /* horizontal hairline through each + */
+    linear-gradient(to right, transparent 0, transparent 30px, rgb(0 240 240 / 0.18) 30px, rgb(0 240 240 / 0.18) 34px, transparent 34px, transparent 64px),
+    /* vertical hairline through each + */
+    linear-gradient(to bottom, transparent 0, transparent 30px, rgb(0 240 240 / 0.18) 30px, rgb(0 240 240 / 0.18) 34px, transparent 34px, transparent 64px),
+    /* the + dot itself */
+    radial-gradient(circle, rgb(0 240 240 / 0.55) 1.2px, transparent 1.6px);
+  background-size:
+    64px 64px,
+    64px 64px,
+    64px 64px;
+  background-position:
+    0 0,
+    0 0,
+    32px 32px;
+  background-repeat: repeat;
+  opacity: 0.6;
+  animation: coordinate-drift 28s linear infinite;
+  will-change: background-position;
+}
+
 /* Scan lines */
 .scanlines {
   background-image: repeating-linear-gradient(
@@ -752,12 +781,8 @@ body {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  height: clamp(360px, 36vw, 460px);
-  background-color: var(--surface);
-  background-image:
-    linear-gradient(to right, rgb(0 240 240 / 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(0 240 240 / 0.045) 1px, transparent 1px);
-  background-size: 32px 32px;
+  height: clamp(500px, 52vw, 660px);
+  background: transparent;
 }
 
 .product-stage__canvas::before {

@@ -4,7 +4,7 @@ import { ArrowRight, Chat, Clock, Shield } from "@/components/icons";
 export function Contact() {
   return (
     <section id="contact" className="relative bg-bg py-20 md:py-28">
-      <div aria-hidden="true" className="ascii-grid absolute inset-0 opacity-50" />
+      <div aria-hidden="true" className="coordinate-field absolute inset-0" />
 
       <Container className="relative max-w-4xl">
         <div className="border border-border-bright bg-surface">
