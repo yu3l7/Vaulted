@@ -16,11 +16,7 @@ const CONTACT_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-border-bright bg-bg">
-      <div
-        aria-hidden="true"
-        className="ascii-grid pointer-events-none absolute inset-0"
-      />
+    <footer className="relative border-t border-border-bright bg-bg">
       <Container className="relative">
         <div className="footer-zones grid grid-cols-1 items-center divide-y divide-dashed divide-border-bright py-6 md:grid-cols-[auto_1fr_auto] md:divide-x md:divide-y-0 md:gap-x-12">
           {/* Zone 1 — brand mark */}
