@@ -81,7 +81,7 @@ body {
 
 /* Mono labels — uppercase, letter-spaced, accent color */
 .label {
-  font-family: var(--font-commit-mono), ui-monospace, monospace;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.7rem;
@@ -98,7 +98,7 @@ body {
 
 /* Mono body for terminal feel */
 .mono {
-  font-family: var(--font-commit-mono), ui-monospace, monospace;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
 /* Card hover — token-driven transform + border + glow */
@@ -732,7 +732,7 @@ body {
   color: var(--accent);
   font-size: 0.85rem;
   letter-spacing: normal;
-  font-family: var(--font-commit-mono), ui-monospace, monospace;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
 .mobile-nav__link-label {
@@ -740,7 +740,7 @@ body {
 }
 
 .mobile-nav__link-tail {
-  font-family: var(--font-commit-mono), ui-monospace, monospace;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: 11px;
   letter-spacing: 0.16em;
   color: var(--muted);
@@ -1260,7 +1260,7 @@ details:focus-within .faq-summary__bullet::after {
   border: 1px solid var(--accent);
   background: var(--surface);
   color: var(--accent);
-  font-family: var(--font-commit-mono), ui-monospace, monospace;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: 11px;
   letter-spacing: 0.08em;
   flex-shrink: 0;
@@ -1273,7 +1273,7 @@ details:focus-within .faq-summary__bullet::after {
 }
 
 .vouch-card__product {
-  font-family: var(--font-commit-mono), ui-monospace, monospace;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
