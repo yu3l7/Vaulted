@@ -55,7 +55,7 @@ export function Hero() {
                 [ browse products <ArrowRight className="size-3.5" /> ]
               </Button>
               <Button
-                href="https://discord.gg/vaulted"
+                href="https://discord.com"
                 external
                 variant="bracket"
                 size="lg"

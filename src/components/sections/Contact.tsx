@@ -14,7 +14,7 @@ export function Contact() {
 
           <p className="mono text-sm leading-relaxed text-muted md:max-w-sm md:text-right">
             <a
-              href="https://discord.gg/vaulted"
+              href="https://discord.com"
               target="_blank"
               rel="noreferrer"
               className="text-accent underline-offset-4 hover:underline"
@@ -23,14 +23,14 @@ export function Contact() {
             </a>
             <span className="mx-2 text-border-bright">·</span>
             <a
-              href="mailto:hello@vaulted.example.com"
+              href="https://gmail.com"
               className="text-accent underline-offset-4 hover:underline"
             >
               email
             </a>
             <span className="mx-2 text-border-bright">·</span>
             <a
-              href="https://discord.gg/vaulted"
+              href="https://discord.com"
               target="_blank"
               rel="noreferrer"
               className="text-accent underline-offset-4 hover:underline"
