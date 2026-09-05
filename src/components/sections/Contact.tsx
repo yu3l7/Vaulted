@@ -24,6 +24,8 @@ export function Contact() {
             <span className="mx-2 text-border-bright">·</span>
             <a
               href="https://gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-accent underline-offset-4 hover:underline"
             >
               email

@@ -15,7 +15,7 @@ const sizes: Record<Size, string> = {
 
 const variants: Record<Variant, string> = {
   solid:
-    "bg-accent text-accent-fg hover:bg-accent/90 focus-visible:bg-accent/90",
+    "bg-accent text-accent-fg hover:bg-accent/90 hover:tracking-[0.12em] focus-visible:bg-accent/90",
   ghost: "text-fg hover:bg-fg/5",
   outline:
     "border border-border-bright text-fg hover:border-accent hover:text-accent",
