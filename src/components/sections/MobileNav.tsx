@@ -119,7 +119,7 @@ function MobileNavDrawer({
               href={link.href}
               onClick={onClose}
               style={{ "--stagger-index": index } as React.CSSProperties}
-              className="mobile-nav__link display block py-3 text-3xl tracking-tight text-fg hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              className="mobile-nav__link block py-3 text-3xl tracking-tight text-fg hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               <span className="mobile-nav__link-bullet" aria-hidden="true">▸</span>
               <span className="mobile-nav__link-label">{link.label}</span>
