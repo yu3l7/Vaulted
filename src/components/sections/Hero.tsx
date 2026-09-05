@@ -34,7 +34,7 @@ export function Hero() {
           {/* Left column — text content */}
           <div className="hero-text relative">
             <p className="label text-accent" aria-live="polite">
-              <span className="text-accent-2">▸</span> 01 supply
+              <span className="text-accent-2">▸</span> 01 / supply
             </p>
 
             <h1 className="display glitch mt-8 text-balance text-5xl md:text-7xl lg:text-8xl">
