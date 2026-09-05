@@ -20,7 +20,7 @@ const variants: Record<Variant, string> = {
   outline:
     "border border-border-bright text-fg hover:border-accent hover:text-accent",
   bracket:
-    "border border-accent/40 bg-accent/5 text-accent hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_24px_rgb(0_240_240/0.25)]",
+    "btn-bracket border border-accent/40 bg-accent/5 text-accent hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_24px_rgb(167_139_250/0.4)]",
 };
 
 export function Button({

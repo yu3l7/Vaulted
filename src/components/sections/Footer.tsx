@@ -1,44 +1,75 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
+const NAV_LINKS = [
+  { href: "/#products", label: "products" },
+  { href: "/#pricing", label: "pricing" },
+  { href: "/#process", label: "process" },
+  { href: "/#vouches", label: "vouches" },
+  { href: "/#faq", label: "faq" },
+  { href: "/#contact", label: "contact" },
+];
+
+const SOCIAL_LINKS = [
+  { href: "https://discord.gg/vaulted", label: "discord", external: true },
+  { href: "mailto:hello@vaulted.example.com", label: "email", external: false },
+];
+
 export function Footer() {
+  const buildHash = "c7a2f1"; // placeholder short git hash
   return (
     <footer className="relative border-t border-border-bright bg-bg py-10">
-      <Container className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-3">
+      <Container className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+        {/* Col 1 — brand */}
+        <div className="flex flex-col gap-2">
           <span className="mono text-xs uppercase tracking-wider">
             <span className="text-accent">[</span>VAULTED.SYS
             <span className="text-accent">]</span>
           </span>
           <span className="mono text-[10px] uppercase tracking-wider text-muted">
-            · est.2026
+            est.2026 · curates fn supply
+          </span>
+          <span className="mono mt-3 text-[10px] uppercase tracking-wider text-muted">
+            build · [{buildHash}]
           </span>
         </div>
 
-        <nav
-          aria-label="Footer"
-          className="mono flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-wider text-muted"
-        >
-          <a
-            href="https://discord.gg/vaulted"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-accent"
-          >
-            discord
-          </a>
-          <a href="mailto:hello@vaulted.example.com" className="hover:text-accent">
-            hello@vaulted.example.com
-          </a>
-          <a href="#faq" className="hover:text-accent">
-            faq
-          </a>
-          <span className="text-muted">·</span>
-          <span className="text-muted">build 2026.09</span>
+        {/* Col 2 — sitemap */}
+        <nav aria-label="Sitemap" className="flex flex-col gap-1.5">
+          <span className="mono text-[10px] uppercase tracking-wider text-muted">
+            · sitemap
+          </span>
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="mono text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent"
+            >
+              [ {l.label} ]
+            </Link>
+          ))}
         </nav>
 
-        <p className="mono text-[10px] uppercase tracking-wider text-muted">
-          not affiliated with epic games
-        </p>
+        {/* Col 3 — social / legal */}
+        <div className="flex flex-col gap-1.5 md:items-end md:text-right">
+          <span className="mono text-[10px] uppercase tracking-wider text-muted">
+            · contact
+          </span>
+          {SOCIAL_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              target={l.external ? "_blank" : undefined}
+              rel={l.external ? "noreferrer" : undefined}
+              className="mono text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent"
+            >
+              [ {l.label} ]
+            </Link>
+          ))}
+          <span className="mono mt-3 text-[10px] uppercase tracking-wider text-muted">
+            disclaimed · not_affiliated · epic_games
+          </span>
+        </div>
       </Container>
     </footer>
   );

@@ -313,9 +313,9 @@ export function OrderForm({
           <button
             type="submit"
             disabled={submitting}
-            className="mono inline-flex h-14 w-full items-center justify-center gap-2 border border-accent bg-accent/10 px-7 text-xs uppercase tracking-wider text-accent transition-all hover:bg-accent/20 hover:shadow-[0_0_24px_rgb(0_240_240/0.35)] disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto"
+            className="btn-bracket mono inline-flex h-14 w-full items-center justify-center gap-2 border border-accent bg-accent/10 px-7 text-xs uppercase tracking-wider text-accent transition-all hover:bg-accent/20 hover:shadow-[0_0_24px_rgb(167_139_250/0.4)] disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto"
           >
-            {submitting ? "[ submitting... ]" : "[ create_ticket → ]"}
+            {submitting ? "submitting..." : "create_ticket →"}
           </button>
           <p className="mono mt-4 text-[10px] uppercase tracking-wider text-muted">
             By submitting you agree to our terms. We never ask for passwords.
@@ -332,51 +332,103 @@ export function OrderForm({
         </div>
       </div>
 
-      {/* Right: sticky summary */}
+      {/* Right: sticky summary — receipt style */}
       <aside className="lg:sticky lg:top-24">
-        <div className="border border-border-bright bg-surface">
-          <div className="flex items-center justify-between border-b border-border-bright bg-bg px-5 py-2.5">
+        <div className="order-receipt">
+          <div className="order-receipt__head">
             <div className="flex items-center gap-2">
               <span className="size-1.5 rounded-full bg-accent" />
               <p className="mono text-[10px] uppercase tracking-wider text-muted">
-                order.summary
+                receipt.draft
               </p>
             </div>
             <p className="mono text-[10px] uppercase tracking-wider text-accent">
-              ● draft
+              ● pending
             </p>
           </div>
-          <div className="space-y-4 p-6">
-            <div>
-              <p className="label text-muted">product</p>
-              <p className="display mt-1 text-2xl tracking-tight">
+
+          <div className="order-receipt__body">
+            <div className="order-receipt__row">
+              <span className="mono text-[10px] uppercase tracking-wider text-muted">
+                product
+              </span>
+              <span className="mono text-xs text-fg truncate">
                 {productName}
-              </p>
-              <p className="mono mt-1 text-[10px] uppercase tracking-wider text-muted">
-                {productCategory.toLowerCase()} · {productSlug}
-              </p>
+              </span>
             </div>
+
+            <div className="order-receipt__row">
+              <span className="mono text-[10px] uppercase tracking-wider text-muted">
+                category
+              </span>
+              <span className="mono text-xs text-fg truncate">
+                {productCategory.toLowerCase()}
+              </span>
+            </div>
+
             {selectedVariant && (
-              <div>
-                <p className="label text-muted">variant</p>
-                <p className="mono mt-1 text-sm uppercase tracking-wider text-fg">
+              <div className="order-receipt__row">
+                <span className="mono text-[10px] uppercase tracking-wider text-muted">
+                  variant
+                </span>
+                <span className="mono text-xs text-fg truncate">
                   {selectedVariant.name}
-                </p>
+                </span>
               </div>
             )}
-            <div className="border-t border-border-bright pt-4">
-              <div className="flex items-baseline justify-between">
-                <p className="label text-muted">total</p>
-                <p className="display text-3xl tracking-tight text-accent">
-                  {displayPrice}
-                </p>
-              </div>
+
+            <div className="order-receipt__row">
+              <span className="mono text-[10px] uppercase tracking-wider text-muted">
+                sku
+              </span>
+              <span className="mono text-xs text-muted truncate">
+                {productSlug}
+              </span>
+            </div>
+
+            <div className="order-receipt__divider" aria-hidden="true" />
+
+            <div className="order-receipt__row">
+              <span className="mono text-[10px] uppercase tracking-wider text-muted">
+                subtotal
+              </span>
+              <span className="mono text-xs text-fg tabular-nums">
+                {displayPrice}
+              </span>
+            </div>
+            <div className="order-receipt__row">
+              <span className="mono text-[10px] uppercase tracking-wider text-muted">
+                fees
+              </span>
+              <span className="mono text-xs text-muted tabular-nums">$0.00</span>
+            </div>
+            <div className="order-receipt__row">
+              <span className="mono text-[10px] uppercase tracking-wider text-muted">
+                tax
+              </span>
+              <span className="mono text-xs text-muted tabular-nums">$0.00</span>
+            </div>
+
+            <div className="order-receipt__divider" aria-hidden="true" />
+
+            <div className="order-receipt__total">
+              <span className="mono text-[10px] uppercase tracking-wider text-muted">
+                total
+              </span>
+              <span
+                className="text-2xl tracking-tight text-accent"
+                style={{ fontFamily: "var(--font-stats)" }}
+              >
+                {displayPrice}
+              </span>
             </div>
           </div>
+
+          <div className="order-receipt__foot mono text-[10px] uppercase tracking-wider text-muted">
+            <p>order expires · 30 min after creation</p>
+            <p className="mt-1">we never ask for passwords</p>
+          </div>
         </div>
-        <p className="mono mt-4 text-[10px] uppercase tracking-wider text-muted">
-          Order expires in 30 min after creation.
-        </p>
       </aside>
     </form>
   );

@@ -160,11 +160,11 @@ export function Products() {
             <h2 className="display mt-3 text-balance text-4xl md:text-5xl">
               Everything you need.
               <br />
-              <span className="text-accent">Nothing you don't.</span>
+              <span className="text-accent">Nothing you don&apos;t.</span>
             </h2>
             <p className="mt-4 max-w-xl text-pretty text-lg text-muted">
               Six categories, hand-curated. Every item is verified before it
-              goes live and replaced if it doesn't match the listing.
+              goes live and replaced if it doesn&apos;t match the listing.
             </p>
           </div>
 

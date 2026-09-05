@@ -20,9 +20,9 @@ export function Faq() {
               key={f.q}
               className="group py-5 [&_summary::-webkit-details-marker]:hidden"
             >
-              <summary className="mono flex cursor-pointer items-center justify-between gap-4 text-sm uppercase tracking-wider text-fg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+              <summary className="faq-summary mono flex cursor-pointer items-center justify-between gap-4 text-sm uppercase tracking-wider text-fg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
                 <span className="flex items-center gap-3">
-                  <span className="text-accent">[{String(i + 1).padStart(2, "0")}]</span>
+                  <span className="faq-summary__bullet text-accent">[{String(i + 1).padStart(2, "0")}]</span>
                   {f.q}
                 </span>
                 <span

@@ -5,6 +5,7 @@ import { ArrowRight, Shield, Zap, Clock, Lock } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { findProduct, products } from "@/lib/content";
 import { ProductVisual } from "@/components/product-visuals";
+import { Footer } from "@/components/sections/Footer";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -40,9 +41,9 @@ export default async function ProductPage({ params }: Props) {
           </div>
           <Link
             href={`/order/${product.slug}`}
-            className="mono inline-flex h-12 items-center gap-2 border border-accent bg-accent/10 px-6 text-xs uppercase tracking-wider text-accent"
+            className="btn-bracket mono inline-flex h-12 items-center gap-2 border border-accent bg-accent/10 px-6 text-xs uppercase tracking-wider text-accent"
           >
-            [ buy_now <ArrowRight className="size-3.5" /> ]
+            buy_now <ArrowRight className="size-3.5" />
           </Link>
         </div>
       </div>
@@ -128,9 +129,9 @@ export default async function ProductPage({ params }: Props) {
                   </div>
                   <Link
                     href={`/order/${product.slug}`}
-                    className="mono inline-flex h-12 items-center gap-2 border border-accent bg-accent/10 px-7 text-xs uppercase tracking-wider text-accent transition-all hover:bg-accent/20 hover:shadow-[0_0_24px_rgb(0_240_240/0.35)]"
+                    className="btn-bracket mono inline-flex h-12 items-center gap-2 border border-accent bg-accent/10 px-7 text-xs uppercase tracking-wider text-accent transition-all hover:bg-accent/20 hover:shadow-[0_0_24px_rgb(167_139_250/0.4)]"
                   >
-                    [ buy_now <ArrowRight className="size-3.5" /> ]
+                    buy_now <ArrowRight className="size-3.5" />
                   </Link>
                 </div>
 
@@ -139,9 +140,9 @@ export default async function ProductPage({ params }: Props) {
                   href="https://discord.gg/vaulted"
                   target="_blank"
                   rel="noreferrer"
-                  className="mono mt-3 inline-flex h-10 items-center gap-2 text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent"
+                  className="btn-bracket btn-bracket--text mono mt-3 inline-flex h-10 items-center gap-2 text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent"
                 >
-                  [ ask_on_discord ]
+                  ask_on_discord
                 </Link>
               </div>
             </div>
@@ -271,9 +272,9 @@ export default async function ProductPage({ params }: Props) {
                       key={f.q}
                       className="group py-5 [&_summary::-webkit-details-marker]:hidden"
                     >
-                      <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm uppercase tracking-wider text-fg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+                      <summary className="faq-summary flex cursor-pointer items-center justify-between gap-4 text-sm uppercase tracking-wider text-fg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
                         <span className="flex items-center gap-3">
-                          <span className="text-accent">[ ? ]</span>
+                          <span className="faq-summary__bullet text-accent">[ ? ]</span>
                           {f.q}
                         </span>
                         <span
@@ -295,6 +296,7 @@ export default async function ProductPage({ params }: Props) {
         )}
 
       </main>
+      <Footer />
     </>
   );
 }

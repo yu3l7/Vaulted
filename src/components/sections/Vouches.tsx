@@ -1,15 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { vouches } from "@/lib/content";
-import { Star } from "@/components/icons";
-
-function formatOrderId(raw: string): string {
-  // raw looks like "0x9af1 · 4f31" — already friendly; just trim.
-  return raw.replace(/\s+/g, "");
-}
-
-function displayOrderId(raw: string): string {
-  return raw;
-}
+import { Star, Check } from "@/components/icons";
 
 export function Vouches() {
   return (
@@ -48,62 +39,54 @@ export function Vouches() {
           </div>
         </div>
 
-        <div
-          role="table"
-          aria-label="Verified vouches ledger"
-          className="vouch-ledger mt-14"
-        >
-          <div className="vouch-ledger__head mono" role="row">
-            <span role="columnheader">verified vouch</span>
-            <span role="columnheader">author</span>
-            <span role="columnheader" className="vouch-ledger__col-product">
-              product
-            </span>
-            <span role="columnheader">order id</span>
-          </div>
-
-          {vouches.map((v) => (
-            <article
+        <div className="vouch-cards mt-14">
+          {vouches.map((v, i) => (
+            <figure
               key={v.orderId}
-              role="row"
-              className="vouch-ledger__row"
+              className="vouch-card"
+              aria-posinset={i + 1}
+              aria-setsize={vouches.length}
             >
-              <blockquote role="cell" className="vouch-ledger__quote">
-                <p className="text-pretty text-base text-fg/90">
-                  &ldquo;{v.body}&rdquo;
-                </p>
-                <p className="mono mt-3 text-[10px] uppercase tracking-wider text-accent">
-                  vouch.verified · {v.meta}
+              <div className="vouch-card__mark" aria-hidden="true">
+                <Check className="size-3" strokeWidth={3} />
+              </div>
+
+              <div className="vouch-card__quote-mark" aria-hidden="true">
+                &ldquo;
+              </div>
+
+              <blockquote className="vouch-card__quote">
+                <p className="text-pretty text-lg leading-relaxed text-fg md:text-xl">
+                  {v.body}
                 </p>
               </blockquote>
 
-              <div role="cell" className="vouch-ledger__author">
-                <span className="vouch-ledger__avatar" aria-hidden="true">
-                  {v.author.replace(/[^a-z0-9]/gi, "").slice(0, 2).toUpperCase()}
-                </span>
-                <span className="flex min-w-0 flex-col">
-                  <span className="mono truncate text-sm text-fg">
-                    {v.author}
+              <figcaption className="vouch-card__foot">
+                <div className="vouch-card__author">
+                  <span className="vouch-card__avatar" aria-hidden="true">
+                    {v.author.replace(/[^a-z0-9]/gi, "").slice(0, 2).toUpperCase()}
                   </span>
-                  <span className="mono truncate text-[10px] uppercase tracking-wider text-muted">
-                    {v.handle}
+                  <span className="flex min-w-0 flex-col">
+                    <span className="mono truncate text-sm text-fg">
+                      {v.author}
+                    </span>
+                    <span className="mono truncate text-[10px] uppercase tracking-wider text-muted">
+                      {v.handle}
+                    </span>
                   </span>
-                </span>
-              </div>
+                </div>
 
-              <p role="cell" className="vouch-ledger__product mono">
-                {v.product}
-              </p>
-
-              <p role="cell" className="vouch-ledger__order mono">
-                <span className="vouch-ledger__order-id" title={formatOrderId(v.orderId)}>
-                  {displayOrderId(v.orderId)}
-                </span>
-                <span className="vouch-ledger__order-mark mono" aria-hidden="true">
-                  verified
-                </span>
-              </p>
-            </article>
+                <div className="vouch-card__meta">
+                  <span className="vouch-card__product">{v.product}</span>
+                  <span className="vouch-card__verified mono">
+                    vouch.verified · {v.meta.replace(/ · verified$/i, "")}
+                  </span>
+                  <span className="vouch-card__order mono">
+                    order · {v.orderId}
+                  </span>
+                </div>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </Container>

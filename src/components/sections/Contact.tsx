@@ -39,11 +39,6 @@ export function Contact() {
             </a>
           </p>
         </div>
-
-        <p className="mono mt-10 inline-flex items-center gap-2 text-[10px] uppercase tracking-wider text-muted">
-          <span aria-hidden="true" className="size-1.5 rounded-full bg-accent pulse-cyan" />
-          hours · <span className="text-fg">09:00–22:00 utc</span> · 7 days/week
-        </p>
       </Container>
     </section>
   );

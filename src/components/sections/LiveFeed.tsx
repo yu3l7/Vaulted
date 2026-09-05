@@ -66,6 +66,7 @@ export function LiveFeed() {
   const [now, setNow] = useState(() => Date.now());
   const counterRef = useRef(0);
   const entriesRef = useRef<Activity[]>([]);
+  // eslint-disable-next-line react-hooks/refs
   entriesRef.current = entries;
 
   // Initial entries
@@ -110,11 +111,13 @@ export function LiveFeed() {
 
   // Mark the newest entry as entering so it animates in
   useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect */
     if (entries.length === 0) return;
     const lastId = entries[entries.length - 1]._id;
     setEnteringKey(lastId);
     const t = window.setTimeout(() => setEnteringKey(null), ENTER_MS);
     return () => window.clearTimeout(t);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, [entries]);
 
   return (

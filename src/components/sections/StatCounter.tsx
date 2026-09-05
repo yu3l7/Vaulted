@@ -75,11 +75,13 @@ function StatCell({
       "(prefers-reduced-motion: reduce)",
     ).matches;
     if (prefersReduced) {
+      /* eslint-disable react-hooks/set-state-in-effect */
       setDisplay(
         formatValue(parsed.numeric, parsed.decimals, parsed.useGrouping),
       );
       setSuffixOpacity(1);
       return;
+      /* eslint-enable react-hooks/set-state-in-effect */
     }
 
     let raf = 0;
@@ -117,7 +119,10 @@ function StatCell({
       <dt className="text-[10px] uppercase tracking-wider text-muted">
         {stat.label}
       </dt>
-      <dd className="mt-1 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
+      <dd
+        className="mt-1 text-2xl font-semibold tracking-tight text-fg md:text-3xl"
+        style={{ fontFamily: "var(--font-stats)" }}
+      >
         <span aria-live="polite" aria-atomic="true">
           {display}
         </span>

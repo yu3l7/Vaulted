@@ -8,10 +8,10 @@ export default function ProductNotFound() {
           <span className="text-accent-2">▸</span> 404 / product_not_found
         </p>
         <h1 className="display mt-4 text-4xl tracking-tight md:text-5xl">
-          That product doesn't exist.
+          That product doesn&apos;t exist.
         </h1>
         <p className="mt-4 text-pretty text-muted">
-          The slug you followed doesn't match any product in our catalog.
+          The slug you followed doesn&apos;t match any product in our catalog.
           Browse all products or open a Discord ticket.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
