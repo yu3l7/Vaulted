@@ -46,8 +46,8 @@ export function Hero() {
             </h1>
 
             <p className="mt-8 max-w-xl text-pretty text-base text-muted md:text-lg">
-              Hand-verified Fortnite supply: accounts, V-Bucks, skins, boosts,
-              coaching, and configs — delivered to your Discord in minutes.
+              Hand-verified Fortnite accounts: 50-skin loadouts, V-Bucks-loaded,
+              rare pickaxes/gliders, OG items — Discord-direct.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
