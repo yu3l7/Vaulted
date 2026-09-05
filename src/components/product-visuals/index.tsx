@@ -54,7 +54,7 @@ export function StackedAccountVisual(props: SVGProps<SVGSVGElement>) {
               x="14"
               y="32"
               fill="white"
-              fontFamily="var(--font-jetbrains-mono, monospace)"
+              fontFamily="var(--font-commit-mono, monospace)"
               fontSize="13"
               fontWeight="500"
               letterSpacing="0.05em"
@@ -84,7 +84,7 @@ export function StackedAccountVisual(props: SVGProps<SVGSVGElement>) {
           x="14"
           y="6"
           fill="var(--accent-2)"
-          fontFamily="var(--font-jetbrains-mono, monospace)"
+          fontFamily="var(--font-commit-mono, monospace)"
           fontSize="10"
           letterSpacing="0.1em"
         >
@@ -176,7 +176,7 @@ export function VbucksVisual(props: SVGProps<SVGSVGElement>) {
         y="460"
         textAnchor="middle"
         fill="var(--muted)"
-        fontFamily="var(--font-jetbrains-mono, monospace)"
+        fontFamily="var(--font-commit-mono, monospace)"
         fontSize="11"
         letterSpacing="0.2em"
       >
@@ -241,7 +241,7 @@ export function BundleVisual(props: SVGProps<SVGSVGElement>) {
                 y="86"
                 textAnchor="middle"
                 fill="white"
-                fontFamily="var(--font-jetbrains-mono, monospace)"
+                fontFamily="var(--font-commit-mono, monospace)"
                 fontSize="10"
                 fontWeight="500"
                 letterSpacing="0.05em"
@@ -273,7 +273,7 @@ export function BundleVisual(props: SVGProps<SVGSVGElement>) {
           x="14"
           y="6"
           fill="var(--accent)"
-          fontFamily="var(--font-jetbrains-mono, monospace)"
+          fontFamily="var(--font-commit-mono, monospace)"
           fontSize="10"
           letterSpacing="0.1em"
         >
@@ -319,7 +319,7 @@ export function BoostVisual(props: SVGProps<SVGSVGElement>) {
         x="40"
         y="80"
         fill="var(--muted)"
-        fontFamily="var(--font-jetbrains-mono, monospace)"
+        fontFamily="var(--font-commit-mono, monospace)"
         fontSize="9"
         letterSpacing="0.1em"
       >
@@ -376,7 +376,7 @@ export function BoostVisual(props: SVGProps<SVGSVGElement>) {
           x="14"
           y="6"
           fill="var(--accent-2)"
-          fontFamily="var(--font-jetbrains-mono, monospace)"
+          fontFamily="var(--font-commit-mono, monospace)"
           fontSize="10"
           letterSpacing="0.1em"
         >
@@ -434,7 +434,7 @@ export function CoachingVisual(props: SVGProps<SVGSVGElement>) {
           x="28"
           y="22"
           fill="var(--muted)"
-          fontFamily="var(--font-jetbrains-mono, monospace)"
+          fontFamily="var(--font-commit-mono, monospace)"
           fontSize="10"
           letterSpacing="0.1em"
         >
@@ -445,7 +445,7 @@ export function CoachingVisual(props: SVGProps<SVGSVGElement>) {
           y="22"
           textAnchor="end"
           fill="var(--accent)"
-          fontFamily="var(--font-jetbrains-mono, monospace)"
+          fontFamily="var(--font-commit-mono, monospace)"
           fontSize="10"
           letterSpacing="0.1em"
         >
@@ -493,7 +493,7 @@ export function CoachingVisual(props: SVGProps<SVGSVGElement>) {
         y="430"
         textAnchor="middle"
         fill="var(--muted)"
-        fontFamily="var(--font-jetbrains-mono, monospace)"
+        fontFamily="var(--font-commit-mono, monospace)"
         fontSize="11"
         letterSpacing="0.2em"
       >
@@ -521,21 +521,21 @@ export function ConfigVisual(props: SVGProps<SVGSVGElement>) {
         {/* WASD block */}
         <g>
           <rect x="20" y="0" width="40" height="40" fill="var(--surface)" stroke="var(--border-bright)" />
-          <text x="40" y="26" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="14" fontWeight="600">W</text>
+          <text x="40" y="26" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-commit-mono, monospace)" fontSize="14" fontWeight="600">W</text>
           <rect x="0" y="44" width="40" height="40" fill="var(--surface)" stroke="var(--accent)" strokeWidth="2" />
-          <text x="20" y="70" textAnchor="middle" fill="var(--accent)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="14" fontWeight="600">A</text>
+          <text x="20" y="70" textAnchor="middle" fill="var(--accent)" fontFamily="var(--font-commit-mono, monospace)" fontSize="14" fontWeight="600">A</text>
           <rect x="44" y="44" width="40" height="40" fill="var(--surface)" stroke="var(--border-bright)" />
-          <text x="64" y="70" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="14" fontWeight="600">S</text>
+          <text x="64" y="70" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-commit-mono, monospace)" fontSize="14" fontWeight="600">S</text>
           <rect x="88" y="44" width="40" height="40" fill="var(--surface)" stroke="var(--border-bright)" />
-          <text x="108" y="70" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="14" fontWeight="600">D</text>
+          <text x="108" y="70" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-commit-mono, monospace)" fontSize="14" fontWeight="600">D</text>
         </g>
 
         {/* Mouse button */}
         <g transform="translate(160 0)">
           <rect x="0" y="0" width="60" height="84" rx="30" fill="var(--surface)" stroke="var(--border-bright)" strokeWidth="1" />
           <line x1="0" y1="42" x2="60" y2="42" stroke="var(--border-bright)" />
-          <text x="30" y="28" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="9">LMB</text>
-          <text x="30" y="62" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="9">RMB</text>
+          <text x="30" y="28" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-commit-mono, monospace)" fontSize="9">LMB</text>
+          <text x="30" y="62" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-commit-mono, monospace)" fontSize="9">RMB</text>
         </g>
       </g>
 
@@ -544,17 +544,17 @@ export function ConfigVisual(props: SVGProps<SVGSVGElement>) {
         <circle cx="0" cy="0" r="70" fill="none" stroke="var(--border-bright)" strokeWidth="1" />
         <circle cx="0" cy="0" r="70" fill="none" stroke="var(--accent)" strokeWidth="2" strokeDasharray="220 220" strokeDashoffset="55" transform="rotate(-90)" />
         <text x="0" y="6" textAnchor="middle" fill="var(--accent)" fontFamily="var(--font-space-grotesk, sans-serif)" fontSize="28" fontWeight="700">7.5</text>
-        <text x="0" y="26" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="9" letterSpacing="0.15em">SENS</text>
+        <text x="0" y="26" textAnchor="middle" fill="var(--muted)" fontFamily="var(--font-commit-mono, monospace)" fontSize="9" letterSpacing="0.15em">SENS</text>
       </g>
 
       {/* Settings list */}
       <g transform="translate(40 380)">
-        <text x="0" y="0" fill="var(--muted)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="9" letterSpacing="0.1em">EDIT_ON_RELEASE</text>
-        <text x="200" y="0" fill="var(--accent)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="9" letterSpacing="0.1em">ON</text>
-        <text x="0" y="20" fill="var(--muted)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="9" letterSpacing="0.1em">PER_WEAPON_SENS</text>
-        <text x="200" y="20" fill="var(--accent)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="9" letterSpacing="0.1em">TUNED</text>
-        <text x="0" y="40" fill="var(--muted)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="9" letterSpacing="0.1em">CURVE</text>
-        <text x="200" y="40" fill="var(--accent)" fontFamily="var(--font-jetbrains-mono, monospace)" fontSize="9" letterSpacing="0.1em">LINEAR</text>
+        <text x="0" y="0" fill="var(--muted)" fontFamily="var(--font-commit-mono, monospace)" fontSize="9" letterSpacing="0.1em">EDIT_ON_RELEASE</text>
+        <text x="200" y="0" fill="var(--accent)" fontFamily="var(--font-commit-mono, monospace)" fontSize="9" letterSpacing="0.1em">ON</text>
+        <text x="0" y="20" fill="var(--muted)" fontFamily="var(--font-commit-mono, monospace)" fontSize="9" letterSpacing="0.1em">PER_WEAPON_SENS</text>
+        <text x="200" y="20" fill="var(--accent)" fontFamily="var(--font-commit-mono, monospace)" fontSize="9" letterSpacing="0.1em">TUNED</text>
+        <text x="0" y="40" fill="var(--muted)" fontFamily="var(--font-commit-mono, monospace)" fontSize="9" letterSpacing="0.1em">CURVE</text>
+        <text x="200" y="40" fill="var(--accent)" fontFamily="var(--font-commit-mono, monospace)" fontSize="9" letterSpacing="0.1em">LINEAR</text>
       </g>
     </svg>
   );

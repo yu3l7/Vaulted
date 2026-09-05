@@ -18,7 +18,7 @@ const commitMono = localFont({
     { path: "../../public/fonts/commit-mono/latin-700-normal.woff2", weight: "700", style: "normal" },
   ],
   display: "swap",
-  variable: "--font-jetbrains-mono",
+  variable: "--font-commit-mono",
 });
 
 const spaceMono = Space_Mono({
