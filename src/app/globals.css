@@ -1377,3 +1377,17 @@ details:focus-within .faq-summary__bullet::after {
   background: var(--surface);
 }
 
+
+/* ──────────────────────────────────────────────────────
+   Footer — single-row terminal strip
+   One inline row of brand + links + build + legal,
+   wraps to multiple lines on mobile, centered.
+   ────────────────────────────────────────────────────── */
+
+.footer-strip {
+  text-align: center;
+}
+
+.footer-strip a {
+  text-decoration: none;
+}
