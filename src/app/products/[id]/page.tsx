@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { ArrowRight, Shield, Zap, Clock, Lock } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
 import { findProduct, products } from "@/lib/content";
+import Image from "next/image";
 import { ProductVisual } from "@/components/product-visuals";
 import { Footer } from "@/components/sections/Footer";
 
@@ -68,7 +69,17 @@ export default async function ProductPage({ params }: Props) {
             <div className="grid items-start gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
               {/* Visual */}
               <div className="relative aspect-[4/5] overflow-hidden border border-border-bright bg-surface">
-                <ProductVisual id={product.id} className="absolute inset-0 size-full" />
+                {product.image ? (
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <ProductVisual id={product.id} className="absolute inset-0 size-full" />
+                )}
                 {product.badge && (
                   <span className="mono absolute left-4 top-4 border border-accent bg-accent/15 px-2 py-1 text-[10px] uppercase tracking-wider text-accent backdrop-blur-sm">
                     [ {product.badge.toLowerCase()} ]

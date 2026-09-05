@@ -1,19 +1,9 @@
 import type { ComponentType, SVGProps } from "react";
 import {
-  Bolt,
-  Chat,
   Check,
   Clock,
-  Controller,
   CreditCard,
-  Crown,
-  Lock,
-  Refresh,
-  Shield,
   Sparkle,
-  Star,
-  Target,
-  Users,
 } from "@/components/icons";
 
 export type Variant = {
@@ -41,37 +31,39 @@ export type Product = {
   includes: string[];
   variants?: Variant[];
   faqs?: ProductFaq[];
-  Icon: ComponentType<SVGProps<SVGSVGElement>>;
+  image?: string;
+  Icon?: ComponentType<SVGProps<SVGSVGElement>>;
 };
 
 export const products: Product[] = [
   {
-    id: "stacked-account",
-    slug: "stacked-account",
-    name: "Stacked Account",
-    tagline: "OG skins, Battle Pass, and 200+ cosmetics ready to load in.",
+    id: "50-skins-account",
+    slug: "50-skins-account",
+    name: "50 Skins Account",
+    tagline: "50 hand-verified skins across rarities, loaded and ready.",
     description:
-      "A pre-loaded Fortnite account with the rarest OG skins — Renegade Raider, Black Knight, Aerial Assault Trooper, and Glow — plus every Battle Pass season 1 through current. Comes with full email access so you own it permanently. Region-locked to NA / EU; alternative regions on request. We hand-verify every account before listing: no bans, no chargebacks, no compromised credentials.",
+      "A pre-loaded Fortnite account carrying 50 skins spanning seasonal, vaulted, and rare tiers — sourced from active inventory, hand-checked for ban status, ownership legitimacy, and cosmetic authenticity. Full email access so the account is yours permanently. Region-locked to NA/EU on standard listings; alternate regions available on request. Every account is verified by our team before listing — no compromised credentials, no chargebacks, no flagged Epic IDs.",
     category: "Accounts",
     price: "from $89",
     badge: "Popular",
+    image: "/product-placeholder.jpg",
     highlights: [
-      "Renegade Raider + Black Knight",
-      "Aerial + Glow included",
-      "Battle Pass seasons 1–current",
+      "50 verified skins across rarities",
+      "Includes seasonal + vaulted picks",
       "Full email access",
-      "Region: NA / EU",
+      "Region: NA / EU (other regions on request)",
+      "Ban-free, chargeback-free",
     ],
     includes: [
       "Account login + email access",
-      "Original purchase receipt (where available)",
       "7-day replacement guarantee",
+      "Original purchase receipt (where available)",
       "Free region transfer assistance",
     ],
     faqs: [
       {
-        q: "Is the account safe?",
-        a: "Yes. We never ask for your password to deliver. Each account is verified against the original Epic email before listing.",
+        q: "Which skins are included?",
+        a: "The 50 are picked from current inventory — DM us on Discord for this week's roster before purchasing.",
       },
       {
         q: "Can I change the email?",
@@ -82,196 +74,148 @@ export const products: Product[] = [
         a: "7-day replacement guarantee. If anything stops working, we replace the account free of charge.",
       },
     ],
-    Icon: Crown,
   },
   {
-    id: "vbucks-13500",
-    slug: "vbucks-13500",
-    name: "V-Bucks 13,500",
-    tagline: "Direct top-up. No account transfer. Keep your saves.",
+    id: "vbucks-loaded-account",
+    slug: "vbucks-loaded-account",
+    name: "V-Bucks Loaded Account",
+    tagline: "Pre-loaded V-Bucks balance ready to spend on the item shop.",
     description:
-      "13,500 V-Bucks delivered as a direct top-up to your existing Epic account — no login required, no third-party tools. V-Bucks land in 5–60 minutes via code or official top-up, depending on your region. Eligible for the current Battle Pass and item shop. Safest way to buy V-Bucks without exposing your account.",
-    category: "V-Bucks",
-    price: "$89.99",
+      "Fortnite account with a V-Bucks balance already loaded — spend instantly on the current Battle Pass, item shop, or save for a future season. Standard listings ship with 13,500 V-Bucks (the Battle Pass tier); larger balances up to 50,000 are available on request. Full email access included. We hand-verify every account: no third-party top-up services, no Epic-flagged IDs, no compromised credentials.",
+    category: "Accounts",
+    price: "from $65",
+    badge: "Best value",
+    image: "/product-placeholder.jpg",
     highlights: [
-      "Same-day delivery",
-      "Code or direct top-up",
-      "Eligible for current Battle Pass",
-      "Safe — no third-party login",
+      "13,500 V-Bucks pre-loaded (standard)",
+      "Battle Pass-eligible on day one",
+      "Up to 50,000 V-Bucks on request",
+      "Full email access",
+      "No third-party top-up services",
     ],
     includes: [
-      "13,500 V-Bucks on your account",
-      "Receipt + delivery confirmation",
-      "Battle Pass-eligible",
-      "5–60 min delivery",
-    ],
-    variants: [
-      { id: "1k", name: "1,000 V-Bucks", price: "$8.99" },
-      { id: "2800", name: "2,800 V-Bucks", price: "$22.99" },
-      { id: "5000", name: "5,000 V-Bucks", price: "$39.99" },
-      { id: "13500", name: "13,500 V-Bucks", price: "$89.99" },
+      "Account login + email access",
+      "13,500 V-Bucks balance (or requested amount)",
+      "7-day replacement guarantee",
+      "Battle Pass-ready on delivery",
     ],
     faqs: [
       {
-        q: "How fast is delivery?",
-        a: "5–60 minutes during business hours. We send a Discord DM with the code or top-up confirmation.",
+        q: "How much V-Bucks is loaded?",
+        a: "Standard listings have 13,500 V-Bucks. We can source larger balances — DM us on Discord for a quote.",
       },
       {
-        q: "Do I need to share my password?",
-        a: "No. Direct top-up uses your Epic gamertag only.",
+        q: "Can I spend the V-Bucks immediately?",
+        a: "Yes — the balance is yours the moment you log in. No cooldown, no transfer delay.",
+      },
+      {
+        q: "Do I keep the V-Bucks if I change the email?",
+        a: "Yes. V-Bucks are tied to the Epic account, not the email — changing the email keeps the balance intact.",
       },
     ],
-    Icon: Bolt,
   },
   {
-    id: "rare-skin-bundle",
-    slug: "rare-skin-bundle",
-    name: "Rare Skin Bundle",
-    tagline: "Pick 3 vaulted skins from a curated rotating catalog.",
+    id: "pickaxe-account",
+    slug: "pickaxe-account",
+    name: "Pickaxe Account",
+    tagline: "Rare pickaxes collected across seasons, ready to harvest.",
     description:
-      "Three vaulted or seasonal skins from our rotating inventory, gifted directly to your account. Each bundle is curated weekly based on what's currently tradeable. Includes Glow, Aerial, and one rotating rare. Lifetime cosmetics — no expiry, no region lock.",
-    category: "Skins",
+      "Fortnite account loaded with a curated collection of rare pickaxes — including seasonal exclusives, vaulted harvest tools, and a few tournament-reward blades. Standard listings ship with 8–12 rare pickaxes; the full list rotates with current inventory. Full email access included. Every account is verified by our team before listing.",
+    category: "Accounts",
     price: "from $49",
+    image: "/product-placeholder.jpg",
+    highlights: [
+      "8–12 rare pickaxes (standard)",
+      "Includes seasonal + vaulted picks",
+      "Full email access",
+      "Region: NA / EU",
+    ],
+    includes: [
+      "Account login + email access",
+      "Curated rare pickaxe loadout",
+      "7-day replacement guarantee",
+    ],
+    faqs: [
+      {
+        q: "Which pickaxes are included?",
+        a: "DM us on Discord for the current week's pickaxe list — it rotates as inventory moves.",
+      },
+      {
+        q: "Are these account-bound or tradeable?",
+        a: "Pickaxes are account-bound. You receive them on the listed account — full email access means you can swap to your own Epic ID.",
+      },
+    ],
+  },
+  {
+    id: "glider-account",
+    slug: "glider-account",
+    name: "Glider Account",
+    tagline: "Rare gliders from vaulted and current seasons, ready to deploy.",
+    description:
+      "Fortnite account loaded with a curated collection of rare gliders — including seasonal deploys, vaulted contrails, and tournament-reward wings. Standard listings ship with 8–12 rare gliders; the full list rotates with current inventory. Full email access included. Every account is verified by our team before listing.",
+    category: "Accounts",
+    price: "from $49",
+    image: "/product-placeholder.jpg",
+    highlights: [
+      "8–12 rare gliders (standard)",
+      "Includes seasonal + vaulted picks",
+      "Full email access",
+      "Region: NA / EU",
+    ],
+    includes: [
+      "Account login + email access",
+      "Curated rare glider loadout",
+      "7-day replacement guarantee",
+    ],
+    faqs: [
+      {
+        q: "Which gliders are included?",
+        a: "DM us on Discord for the current week's glider list — it rotates as inventory moves.",
+      },
+      {
+        q: "Can I get both gliders and pickaxes on the same account?",
+        a: "Not on standard listings. Open a custom ticket if you want a combined loadout — we can usually source it within 48 hours.",
+      },
+    ],
+  },
+  {
+    id: "og-account",
+    slug: "og-account",
+    name: "OG Account",
+    tagline: "Original season cosmetics — the rarest loadout in the game.",
+    description:
+      "Top-tier Fortnite account loaded with original-season items — Season 1 through Season 3 cosmetics including the legendary Renegade Raider, Black Knight, Aerial Assault Trooper, and Glow. These accounts are sourced carefully and priced accordingly; supply is limited. Full email access included. Every OG account is verified by our team before listing: no Epic flags, no compromised credentials, no chargebacks.",
+    category: "Accounts",
+    price: "from $149",
     badge: "Limited",
+    image: "/product-placeholder.jpg",
     highlights: [
-      "Pick 3 from rotating catalog",
-      "Includes Glow + Aerial",
-      "Direct gift to your account",
-      "Lifetime cosmetics — no expiry",
+      "Renegade Raider + Black Knight",
+      "Aerial Assault Trooper + Glow",
+      "Season 1–3 OG items",
+      "Full email access",
+      "Limited inventory",
     ],
     includes: [
-      "3 vaulted/seasonal skins",
-      "Direct gift delivery",
-      "Rarity tier selection",
-      "Lifetime ownership",
-    ],
-    variants: [
-      { id: "common", name: "Common tier", price: "$49", description: "3 seasonal skins, no OGs" },
-      { id: "rare", name: "Rare tier", price: "$89", description: "3 vaulted skins, includes Glow" },
-      { id: "og", name: "OG tier", price: "$189", description: "3 OGs incl. Renegade or Black Knight" },
+      "Account login + email access",
+      "Curated OG-season loadout",
+      "7-day replacement guarantee",
+      "Original purchase receipt (where available)",
     ],
     faqs: [
       {
-        q: "Which skins are in the catalog this week?",
-        a: "DM us on Discord for the current week's pick list — it changes as inventory moves.",
+        q: "What's the rarest item on a standard OG account?",
+        a: "Renegade Raider or Black Knight on most listings. Some carry both — DM us for the current inventory.",
       },
       {
-        q: "Can I choose specific skins?",
-        a: "Yes for Rare and OG tiers. Common tier is curated by us.",
-      },
-    ],
-    Icon: Sparkle,
-  },
-  {
-    id: "boost-battle-pass",
-    slug: "boost-battle-pass",
-    name: "Battle Pass Boost",
-    tagline: "Reach tier 100 by your deadline. Solo queue or team.",
-    description:
-      "Battle Pass completed to tier 100 by a top-tier booster — solo queue (you play, we coach) or piloted (we play). Average turnaround 48 hours. Daily progress updates on Discord with screenshots. VPN-safe — your account stays secure throughout.",
-    category: "Boosting",
-    price: "$35",
-    highlights: [
-      "Average 48h turnaround",
-      "Self-play or piloted",
-      "Daily progress updates on Discord",
-      "VPN-safe",
-    ],
-    includes: [
-      "Tier 0 → 100 completion",
-      "Daily screenshot updates",
-      "All seasonal challenges",
-      "Style bonuses included",
-    ],
-    variants: [
-      { id: "self-play", name: "Self-play (coached)", price: "$35" },
-      { id: "piloted", name: "Piloted (we play)", price: "$55" },
-      { id: "express", name: "Express (24h)", price: "$85" },
-    ],
-    faqs: [
-      {
-        q: "Will my account get flagged?",
-        a: "No. We use VPN matching and human play — not bots. 4,200+ orders completed without a single ban.",
+        q: "Why is pricing 'from' instead of fixed?",
+        a: "OG inventory varies week to week. The 'from' price reflects a base OG loadout; accounts with both Renegade and Black Knight list higher.",
       },
       {
-        q: "Can I watch the boost happen?",
-        a: "Yes — we stream every session on Discord for transparency.",
+        q: "Can I upgrade an OG account to stacked later?",
+        a: "Yes — open a custom ticket. We can usually source a stacked OG (Renegade + Black Knight + every Battle Pass skin) within 72 hours.",
       },
     ],
-    Icon: Target,
-  },
-  {
-    id: "coaching-1on1",
-    slug: "coaching-1on1",
-    name: "1-on-1 Coaching",
-    tagline: "Build edits, rotations, and aim with a top 1% player.",
-    description:
-      "Live 1-on-1 session with a top-1% Fortnite player. VOD review, custom practice routine, and a recorded session you keep forever. Available for K&M and controller. Booking via Discord.",
-    category: "Coaching",
-    price: "$60 / hr",
-    badge: "New",
-    highlights: [
-      "Live VOD review",
-      "Custom practice routine",
-      "Controller or K&M",
-      "Recorded session included",
-    ],
-    includes: [
-      "1-hour live session",
-      "Custom practice routine PDF",
-      "Recorded VOD (yours to keep)",
-      "Follow-up Discord support",
-    ],
-    faqs: [
-      {
-        q: "What's your rank?",
-        a: "All coaches are Champion+ with verified tournament history.",
-      },
-      {
-        q: "Can I book recurring sessions?",
-        a: "Yes — 4-session and 8-session bundles are available at a discount.",
-      },
-    ],
-    Icon: Users,
-  },
-  {
-    id: "creative-config",
-    slug: "creative-config",
-    name: "Creative Config Drop",
-    tagline: "Hand-tuned sensitivity + keybinds for your setup.",
-    description:
-      "Sensitivity, keybinds, and edit settings tuned by a top-tier player for your exact setup (K&M, controller, linear vs standard, etc.). Delivered as a downloadable config file + setup guide. Lifetime updates — if we tune ours, you get the new one free.",
-    category: "Configs",
-    price: "$15",
-    highlights: [
-      "Per-weapon sensitivity",
-      "Edit-on-release binds",
-      "Tested on linear + standard",
-      "Lifetime updates",
-    ],
-    includes: [
-      "Custom config file",
-      "Setup guide PDF",
-      "Lifetime free updates",
-      "K&M or controller",
-    ],
-    variants: [
-      { id: "km-linear", name: "K&M · Linear", price: "$15" },
-      { id: "km-standard", name: "K&M · Standard", price: "$15" },
-      { id: "controller-linear", name: "Controller · Linear", price: "$15" },
-      { id: "controller-standard", name: "Controller · Standard", price: "$15" },
-    ],
-    faqs: [
-      {
-        q: "Will this work on my setup?",
-        a: "Yes — every config is tuned for a specific input + curve combo. Pick the matching variant.",
-      },
-      {
-        q: "Can I get a refund?",
-        a: "Yes within 7 days if the config doesn't improve your gameplay.",
-      },
-    ],
-    Icon: Controller,
   },
 ];
 
@@ -294,46 +238,46 @@ export const tiers: Tier[] = [
   {
     id: "starter",
     name: "Starter",
-    price: "$25",
-    description: "Quick wins for new players or one-off purchases.",
+    price: "$49",
+    description: "Entry loadout — a curated single-slot account.",
     features: [
-      "1,000 V-Bucks top-up",
-      "Single rare skin pick",
-      "Sensitivity config file",
+      "Pickaxe or Glider Account",
+      "8–12 rare cosmetics",
+      "Full email access",
       "Discord support",
     ],
     cta: "Get started",
-    productSlug: "vbucks-13500",
+    productSlug: "pickaxe-account",
   },
   {
     id: "standard",
     name: "Standard",
-    price: "$75",
+    price: "$89",
     description: "Most popular. A complete loadout refresh in one go.",
     features: [
-      "3-skin rare bundle",
-      "Battle Pass boost to tier 100",
-      "Coaching intro session (30 min)",
+      "50 Skins Account",
+      "Curated mix of rarities",
+      "Full email access",
       "Priority Discord support",
     ],
     featured: true,
     cta: "Go standard",
-    productSlug: "rare-skin-bundle",
+    productSlug: "50-skins-account",
   },
   {
     id: "pro",
     name: "Pro",
-    price: "$220",
-    description: "Full vault. Accounts, skins, and a season's worth of coaching.",
+    price: "$149",
+    description: "Full OG vault. The rarest loadout in the game.",
     features: [
-      "Stacked account (OG skins)",
-      "5-skin rare bundle",
-      "4× 1-hour coaching sessions",
-      "Custom creative config",
+      "OG Account (Renegade + Black Knight)",
+      "V-Bucks Loaded Account bundle",
+      "Custom cosmetic requests",
       "VIP Discord channel",
+      "Lifetime loadout support",
     ],
     cta: "Go pro",
-    productSlug: "stacked-account",
+    productSlug: "og-account",
   },
 ];
 
@@ -372,27 +316,27 @@ export type Vouch = {
 
 export const vouches: Vouch[] = [
   {
-    body: "Got the stacked account in 20 minutes. Skins were exactly as advertised. Already on my second order.",
+    body: "Picked up the OG account — Renegade + Black Knight both loaded, email swapped in 5 minutes. Smooth.",
     author: "@kevinn_b",
-    meta: "Stacked Account · verified",
+    meta: "OG Account · verified",
     handle: "kevinn.discord.gg",
-    product: "Stacked Account",
+    product: "OG Account",
     orderId: "0x9af1 · 4f31",
   },
   {
-    body: "Coach broke down my build edits in a way no YouTube video ever did. Hit Champion next split.",
+    body: "50 Skins Account had exactly what I wanted. Verification was thorough, no issues since.",
     author: "@maddie.q",
-    meta: "Coaching 4× · verified",
+    meta: "50 Skins Account · verified",
     handle: "maddie.q.psn",
-    product: "Coaching · 4 sessions",
+    product: "50 Skins Account",
     orderId: "0x6c0d · 2b1a",
   },
   {
-    body: "Battle Pass to tier 100 in two days, no sketchy logins. They sent clips of every milestone.",
+    body: "V-Bucks Loaded Account was the fastest delivery I've ever gotten. Logged in and the balance was there.",
     author: "@toasted__",
-    meta: "Boosting · verified",
+    meta: "V-Bucks Loaded · verified",
     handle: "toasted__",
-    product: "Battle Pass Boost",
+    product: "V-Bucks Loaded Account",
     orderId: "0x4218 · 9d77",
   },
 ];

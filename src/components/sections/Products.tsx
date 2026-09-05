@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { CSSProperties } from "react";
 import { ArrowRight, Check } from "@/components/icons";
 import { Container } from "@/components/ui/Container";
@@ -17,21 +18,19 @@ const CATEGORIES = [
 ] as const;
 
 const VARIANTS: Record<string, string> = {
-  "stacked-account": "NA / EU · Full access",
-  "vbucks-13500": "Direct top-up · No transfer",
-  "rare-skin-bundle": "Pick 3 · Lifetime cosmetics",
-  "boost-battle-pass": "Self-play or piloted · 48h avg",
-  "coaching-1on1": "Live VOD · Recorded session",
-  "creative-config": "K&M + controller · Lifetime updates",
+  "50-skins-account": "Hand-verified · Full email access",
+  "vbucks-loaded-account": "13,500+ V-Bucks · Battle Pass ready",
+  "pickaxe-account": "8–12 rare pickaxes · Curated",
+  "glider-account": "8–12 rare gliders · Curated",
+  "og-account": "Season 1–3 OG items · Limited",
 };
 
 const DELIVERY: Record<string, string> = {
-  "stacked-account": "Same-day delivery",
-  "vbucks-13500": "5–60 min delivery",
-  "rare-skin-bundle": "Same-day delivery",
-  "boost-battle-pass": "Starts within 12 hours",
-  "coaching-1on1": "Booked on your schedule",
-  "creative-config": "Instant download",
+  "50-skins-account": "Same-day delivery",
+  "vbucks-loaded-account": "5–60 min delivery",
+  "pickaxe-account": "Same-day delivery",
+  "glider-account": "Same-day delivery",
+  "og-account": "Same-day delivery · Limited stock",
 };
 
 function PriceLine({ price }: { price: string }) {
@@ -61,10 +60,20 @@ function ProductCard({
     >
       {/* Visual */}
       <div className="relative aspect-[4/3] overflow-hidden bg-bg">
-        <ProductVisual
-          id={product.id}
-          className="absolute inset-0 size-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-        />
+        {product.image ? (
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+          />
+        ) : (
+          <ProductVisual
+            id={product.id}
+            className="absolute inset-0 size-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+          />
+        )}
         {product.badge && (
           <span
             className={cn(
