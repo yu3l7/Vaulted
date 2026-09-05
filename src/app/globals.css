@@ -130,15 +130,6 @@ body {
   animation-delay: calc(var(--card-index, 0) * 80ms);
 }
 
-/* Category filter — pure CSS via :has() + radio inputs */
-#products:has(#cat-accounts:checked) [data-cat]:not([data-cat="Accounts"]),
-#products:has(#cat-vbucks:checked) [data-cat]:not([data-cat="V-Bucks"]),
-#products:has(#cat-skins:checked) [data-cat]:not([data-cat="Skins"]),
-#products:has(#cat-boosting:checked) [data-cat]:not([data-cat="Boosting"]),
-#products:has(#cat-coaching:checked) [data-cat]:not([data-cat="Coaching"]),
-#products:has(#cat-configs:checked) [data-cat]:not([data-cat="Configs"]) {
-  display: none;
-}
 
 @media (prefers-reduced-motion: reduce) {
   #products .grid > * {

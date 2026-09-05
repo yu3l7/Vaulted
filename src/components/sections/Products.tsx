@@ -7,16 +7,6 @@ import { products, type Product } from "@/lib/content";
 import { ProductVisual } from "@/components/product-visuals";
 import { cn } from "@/lib/cn";
 
-const CATEGORIES = [
-  { id: "all", label: "All" },
-  { id: "accounts", label: "Accounts" },
-  { id: "vbucks", label: "V-Bucks" },
-  { id: "skins", label: "Skins" },
-  { id: "boosting", label: "Boosting" },
-  { id: "coaching", label: "Coaching" },
-  { id: "configs", label: "Configs" },
-] as const;
-
 const VARIANTS: Record<string, string> = {
   "50-skins-account": "Hand-verified · Full email access",
   "vbucks-loaded-account": "13,500+ V-Bucks · Battle Pass ready",
@@ -54,7 +44,6 @@ function ProductCard({
   return (
     <Link
       href={`/products/${product.slug}`}
-      data-cat={product.category}
       style={{ "--card-index": index } as CSSProperties}
       className="group card-transition relative flex flex-col overflow-hidden border border-border bg-surface hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
@@ -125,34 +114,6 @@ function ProductCard({
   );
 }
 
-function CategoryFilter() {
-  return (
-    <div
-      role="radiogroup"
-      aria-label="Filter products by category"
-      className="mt-10 flex flex-wrap gap-2"
-    >
-      {CATEGORIES.map((c) => (
-        <span key={c.id}>
-          <input
-            type="radio"
-            name="cat"
-            id={`cat-${c.id}`}
-            defaultChecked={c.id === "all"}
-            className="sr-only peer"
-          />
-          <label
-            htmlFor={`cat-${c.id}`}
-            className="inline-flex h-9 cursor-pointer items-center border border-border-bright bg-fg/5 px-4 text-xs font-medium uppercase tracking-wider text-fg transition-colors peer-checked:border-accent peer-checked:bg-accent peer-checked:text-accent-fg peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent hover:border-accent"
-          >
-            {c.label}
-          </label>
-        </span>
-      ))}
-    </div>
-  );
-}
-
 export function Products() {
   return (
     <section
@@ -186,10 +147,7 @@ export function Products() {
           </Link>
         </div>
 
-        {/* Category filter — pure CSS via :has() */}
-        <CategoryFilter />
-
-        {/* Grid — uniform 6-card layout */}
+        {/* Grid — uniform layout */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p, i) => (
             <ProductCard key={p.id} product={p} index={i} />
