@@ -2,18 +2,18 @@ import Image from "next/image";
 
 const PRODUCT_IMAGES = [
   {
-    src: "/product-01.png",
-    alt: "Vaulted Fortnite product preview 01",
+    src: "/product-placeholder.jpg",
+    alt: "Vaulted Fortnite account preview 01",
     className: "product-stage__image--one",
   },
   {
-    src: "/product-02.png",
-    alt: "Vaulted Fortnite product preview 02",
+    src: "/product-placeholder.jpg",
+    alt: "Vaulted Fortnite account preview 02",
     className: "product-stage__image--two",
   },
   {
-    src: "/product-03.png",
-    alt: "Vaulted Fortnite product preview 03",
+    src: "/product-placeholder.jpg",
+    alt: "Vaulted Fortnite account preview 03",
     className: "product-stage__image--three",
   },
 ] as const;
