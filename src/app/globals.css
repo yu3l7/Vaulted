@@ -81,7 +81,7 @@ body {
 
 /* Mono labels — uppercase, letter-spaced, accent color */
 .label {
-  font-family: var(--font-commit-mono), ui-monospace, monospace;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.7rem;
@@ -98,7 +98,7 @@ body {
 
 /* Mono body for terminal feel */
 .mono {
-  font-family: var(--font-commit-mono), ui-monospace, monospace;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
 }
 
 /* Card hover — token-driven transform + border + glow */
