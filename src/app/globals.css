@@ -1379,15 +1379,24 @@ details:focus-within .faq-summary__bullet::after {
 
 
 /* ──────────────────────────────────────────────────────
-   Footer — single-row terminal strip
-   One inline row of brand + links + build + legal,
-   wraps to multiple lines on mobile, centered.
+   Footer — three-zone terminal strip
+   Brand · Copyright · Contact, separated by dashed
+   dividers. Stacks on mobile with horizontal dividers.
    ────────────────────────────────────────────────────── */
 
-.footer-strip {
-  text-align: center;
+.footer-zones {
+  /* CSS-grid + Tailwind divide-x handles the desktop
+     vertical hairlines; nothing to override here yet. */
 }
 
-.footer-strip a {
+.footer-link {
   text-decoration: none;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  text-shadow: var(--glow-accent);
+  outline: none;
 }
