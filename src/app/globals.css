@@ -44,7 +44,7 @@
   --color-accent-fg: var(--accent-fg);
   --color-accent-2: var(--accent-2);
   --color-accent-2-fg: var(--accent-2-fg);
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-display: var(--font-unbounded), system-ui, sans-serif;
   --font-mono: var(--font-commit-mono), ui-monospace, monospace;
   --font-sans: var(--font-space-grotesk), system-ui, sans-serif;
   --font-stats: var(--font-space-mono), ui-monospace, monospace;
@@ -90,7 +90,7 @@ body {
 
 /* Display headings — Space Grotesk, tight tracking */
 .display {
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-family: var(--font-unbounded), system-ui, sans-serif;
   letter-spacing: -0.04em;
   line-height: 0.95;
   font-weight: 500;
@@ -1080,7 +1080,7 @@ body {
 }
 
 .process-ladder__title {
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  font-family: var(--font-unbounded), system-ui, sans-serif;
   font-size: 1.4rem;
   line-height: 1.2;
   letter-spacing: -0.02em;

@@ -5,7 +5,7 @@ export default function NotFound() {
     <main className="grid min-h-screen place-items-center bg-bg px-6 text-center">
       <div>
         <p className="text-sm text-muted">404</p>
-        <h1 className="mt-2 text-balance text-5xl font-semibold tracking-tight md:text-6xl">
+        <h1 className="display mt-2 text-balance text-5xl md:text-6xl">
           Page not found
         </h1>
         <p className="mt-3 max-w-md text-muted">
