@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Unbounded, IBM_Plex_Mono, Space_Mono } from "next/font/google";
+import { Unbounded, Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -9,10 +10,14 @@ const unbounded = Unbounded({
   variable: "--font-space-grotesk",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
+const commitMono = localFont({
+  src: [
+    { path: "../../public/fonts/commit-mono/latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/commit-mono/latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../../public/fonts/commit-mono/latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../../public/fonts/commit-mono/latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
   variable: "--font-jetbrains-mono",
 });
 
@@ -51,7 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${unbounded.variable} ${ibmPlexMono.variable} ${spaceMono.variable}`}
+      className={`${unbounded.variable} ${commitMono.variable} ${spaceMono.variable}`}
     >
       <body className="bg-bg text-fg min-h-screen flex flex-col antialiased">
         <div className="scroll-progress" aria-hidden="true" />
