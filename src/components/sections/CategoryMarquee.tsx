@@ -1,12 +1,11 @@
 import { Container } from "@/components/ui/Container";
 
 const ITEMS = [
-  "ACCOUNTS",
-  "V-BUCKS",
-  "RARE_SKINS",
-  "BOOSTING",
-  "COACHING",
-  "CONFIGS",
+  "50_SKINS",
+  "VBUCKS_LOADED",
+  "PICKAXE",
+  "GLIDER",
+  "OG_ACCOUNTS",
   "SAME_DAY",
   "DISCORD_DIRECT",
   "VERIFIED",

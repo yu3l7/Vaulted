@@ -53,7 +53,7 @@ export default async function OG() {
             color: "#a3a3a3",
           }}
         >
-          Stacked accounts · V-Bucks · Rare skins · Coaching
+          Verified · Discord-direct · Same-day delivery
         </div>
       </div>
     ),

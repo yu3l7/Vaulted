@@ -18,18 +18,18 @@ type Activity = ActivityTemplate & {
 };
 
 const MOCK_ACTIVITY: ActivityTemplate[] = [
-  { type: "order", user: "khaled.dxb", product: "Stacked Account", baseOffset: 12 },
-  { type: "vouch", user: "maria.gg", product: "V-Bucks 13.5k", baseOffset: 34 },
-  { type: "delivery", user: "fahad07", product: "Battle Pass Boost", baseOffset: 56 },
-  { type: "order", user: "jordan.k", product: "Stacked Account", baseOffset: 89 },
-  { type: "vouch", user: "lina.fa", product: "Rare Skin Bundle", baseOffset: 124 },
-  { type: "order", user: "ahmed_92", product: "1-on-1 Coaching", baseOffset: 178 },
-  { type: "delivery", user: "noah.tt", product: "Creative Config Drop", baseOffset: 245 },
-  { type: "order", user: "rio.br", product: "V-Bucks 13.5k", baseOffset: 312 },
-  { type: "support", user: "yara.iq", product: "Region transfer", baseOffset: 401 },
-  { type: "vouch", user: "sami.ps", product: "Stacked Account", baseOffset: 478 },
-  { type: "order", user: "kai.jp", product: "Stacked Account", baseOffset: 528 },
-  { type: "delivery", user: "jules.eu", product: "Battle Pass Boost", baseOffset: 645 },
+  { type: "order", user: "khaled.dxb", product: "account delivered", baseOffset: 12 },
+  { type: "vouch", user: "maria.gg", product: "verified vouch", baseOffset: 34 },
+  { type: "delivery", user: "fahad07", product: "loadout confirmed", baseOffset: 56 },
+  { type: "order", user: "jordan.k", product: "account delivered", baseOffset: 89 },
+  { type: "vouch", user: "lina.fa", product: "verified vouch", baseOffset: 124 },
+  { type: "order", user: "ahmed_92", product: "loadout ready", baseOffset: 178 },
+  { type: "delivery", user: "noah.tt", product: "delivery confirmed", baseOffset: 245 },
+  { type: "order", user: "rio.br", product: "account delivered", baseOffset: 312 },
+  { type: "support", user: "yara.iq", product: "ticket resolved", baseOffset: 401 },
+  { type: "vouch", user: "sami.ps", product: "verified vouch", baseOffset: 478 },
+  { type: "order", user: "kai.jp", product: "account delivered", baseOffset: 528 },
+  { type: "delivery", user: "jules.eu", product: "loadout confirmed", baseOffset: 645 },
 ];
 
 const TYPE_META: Record<

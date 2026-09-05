@@ -51,8 +51,8 @@ export default async function ConfirmedPage({ params }: Props) {
               <li className="flex gap-3">
                 <span className="text-accent">[ 03 ]</span>
                 <span>
-                  Goods land in 5–60 minutes for digital items, scheduled for
-                  coaching and boosting.
+                  Accounts ship same-day — login, swap the email to your own
+                  Epic ID, and you're in.
                 </span>
               </li>
             </ol>

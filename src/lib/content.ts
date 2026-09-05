@@ -301,7 +301,7 @@ export const steps: Step[] = [
   {
     Icon: Clock,
     title: "Delivered in 5–60 min",
-    body: "V-Bucks and skins land same-day. Accounts and coaching booked instantly.",
+    body: "Accounts ship same-day with full email access and a 7-day replacement guarantee.",
   },
 ];
 
@@ -349,7 +349,7 @@ export type Faq = {
 export const faqs: Faq[] = [
   {
     q: "How fast is delivery?",
-    a: "V-Bucks, skins, and configs deliver within 5–60 minutes. Boosting services start within 12 hours. Coaching is booked on your schedule.",
+    a: "Every account type ships same-day — typically within 5–60 minutes of purchase confirmation.",
   },
   {
     q: "Do you take custom orders?",
@@ -357,11 +357,11 @@ export const faqs: Faq[] = [
   },
   {
     q: "What if something goes wrong?",
-    a: "Every order includes a 7-day replacement guarantee on digital goods and a free redo on coaching and boosting.",
+    a: "Every order includes a 7-day replacement guarantee. If an account stops working for any reason, we replace it free of charge.",
   },
   {
     q: "Is my account safe?",
-    a: "We never ask for your password. V-Bucks and skins are delivered via code or official top-up. Boosting is VPN-safe.",
+    a: "Every account is hand-verified by our team — no Epic flags, no chargebacks, no compromised credentials. You receive full email access so you can swap the account to your own Epic ID within minutes.",
   },
   {
     q: "What payment methods do you accept?",
