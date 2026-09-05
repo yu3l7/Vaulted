@@ -313,9 +313,9 @@ export function OrderForm({
           <button
             type="submit"
             disabled={submitting}
-            className="btn-bracket mono inline-flex h-14 w-full items-center justify-center gap-2 border border-accent bg-accent/10 px-7 text-xs uppercase tracking-wider text-accent transition-all hover:bg-accent/20 hover:shadow-[0_0_24px_rgb(167_139_250/0.4)] disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto"
+            className="mono inline-flex h-14 w-full items-center justify-center gap-2 border border-accent bg-accent/10 px-7 text-xs uppercase tracking-wider text-accent transition-all hover:bg-accent/20 hover:shadow-[0_0_24px_rgb(167_139_250/0.4)] disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto"
           >
-            {submitting ? "submitting..." : "create_ticket →"}
+            {submitting ? "[ submitting... ]" : "[ create_ticket → ]"}
           </button>
           <p className="mono mt-4 text-[10px] uppercase tracking-wider text-muted">
             By submitting you agree to our terms. We never ask for passwords.

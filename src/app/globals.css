@@ -781,8 +781,7 @@ body {
   overflow: hidden;
   height: clamp(500px, 52vw, 660px);
   background: transparent;
-  /* Vignette only — soft inner shadow. No frame, no corners, no scanlines. */
-  box-shadow: inset 0 0 56px rgb(0 0 0 / 0.5);
+  /* Vignette removed — pure transparent holder for the 3 product images. */
 }
 
 .product-stage__corners,
@@ -989,8 +988,9 @@ body {
 .process-ladder__number {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-end;
   padding-top: 0.25rem;
+  padding-right: 1.25rem;
   border-right: 1px solid var(--border-bright);
   position: relative;
 }
@@ -999,7 +999,7 @@ body {
   /* Small node at the right edge — marks where the rail enters the card */
   content: "";
   position: absolute;
-  top: 1.6rem;
+  top: 1.4rem;
   right: -4px;
   width: 8px;
   height: 8px;
@@ -1112,6 +1112,10 @@ body {
   .process-ladder__row {
     grid-template-columns: 56px 1fr;
     gap: 0.85rem;
+  }
+
+  .process-ladder__number {
+    padding-right: 0.85rem;
   }
 
   .process-ladder__number-glyph {
@@ -1373,83 +1377,3 @@ details:focus-within .faq-summary__bullet::after {
   background: var(--surface);
 }
 
-/* ──────────────────────────────────────────────────────
-   Bracket-animate buttons
-   Adds ::before = "[" and ::after = "]" pseudo-elements
-   that slide apart on hover/focus. Removes literal [ ] from
-   the rendered text content. Works on any element.
-   ────────────────────────────────────────────────────── */
-
-.btn-bracket {
-  position: relative;
-  --bracket-offset: 8px;
-  --bracket-duration: 320ms;
-}
-
-.btn-bracket::before,
-.btn-bracket::after {
-  content: "[";
-  position: absolute;
-  top: 50%;
-  transform: translate3d(0, -50%, 0);
-  pointer-events: none;
-  transition:
-    transform var(--bracket-duration) var(--ease-out-expo),
-    color var(--duration-fast) var(--ease-out-expo),
-    opacity var(--duration-fast) var(--ease-out-expo);
-  opacity: 0.85;
-}
-
-.btn-bracket::after {
-  content: "]";
-}
-
-.btn-bracket::before {
-  left: var(--bracket-offset);
-}
-
-.btn-bracket::after {
-  right: var(--bracket-offset);
-}
-
-.btn-bracket:hover::before,
-.btn-bracket:focus-visible::before {
-  transform: translate3d(calc(var(--bracket-offset) * -1), -50%, 0);
-  color: var(--accent-2);
-  opacity: 1;
-}
-
-.btn-bracket:hover::after,
-.btn-bracket:focus-visible::after {
-  transform: translate3d(var(--bracket-offset), -50%, 0);
-  color: var(--accent-2);
-  opacity: 1;
-}
-
-/* Text-only variant — brackets are smaller and tinted to match muted text */
-.btn-bracket--text::before,
-.btn-bracket--text::after {
-  font-size: inherit;
-  opacity: 0.6;
-}
-
-.btn-bracket--text:hover::before,
-.btn-bracket--text:focus-visible::before,
-.btn-bracket--text:hover::after,
-.btn-bracket--text:focus-visible::after {
-  color: var(--accent);
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-bracket::before,
-  .btn-bracket::after {
-    transition: none !important;
-  }
-  .btn-bracket:hover::before,
-  .btn-bracket:focus-visible::before,
-  .btn-bracket:hover::after,
-  .btn-bracket:focus-visible::after {
-    transform: translate3d(0, -50%, 0);
-  }
-}
