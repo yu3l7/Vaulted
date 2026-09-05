@@ -10,7 +10,7 @@ const CONTACT_LINKS = [
   {
     href: "https://gmail.com",
     label: "email",
-    external: false,
+    external: true,
   },
 ] as const;
 

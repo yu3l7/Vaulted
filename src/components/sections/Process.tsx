@@ -67,10 +67,6 @@ export function Process() {
                     </div>
                   </div>
 
-                  <footer className="process-ladder__foot">
-                    <span className="mono">path: discord / vaulted / ticket</span>
-                    <span className="mono text-accent-2">● ready</span>
-                  </footer>
                 </article>
               </li>
             );
