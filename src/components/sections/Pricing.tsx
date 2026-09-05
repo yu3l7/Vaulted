@@ -63,7 +63,7 @@ export function Pricing() {
               </ul>
 
               <Link
-                href={tier.productSlug ? `/order/${tier.productSlug}` : "https://discord.gg/vaulted"}
+                href={tier.productSlug ? `/order/${tier.productSlug}` : "https://discord.com"}
                 className={cn(
                   "mono mt-8 inline-flex h-12 items-center justify-center px-6 text-xs uppercase tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
                   tier.featured

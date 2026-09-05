@@ -22,7 +22,7 @@ export default function ProductNotFound() {
             [ browse_products ]
           </Link>
           <Link
-            href="https://discord.gg/vaulted"
+            href="https://discord.com"
             target="_blank"
             rel="noreferrer"
             className="mono inline-flex h-11 items-center border border-border-bright bg-fg/5 px-6 text-xs uppercase tracking-wider text-fg"

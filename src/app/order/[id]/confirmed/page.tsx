@@ -61,7 +61,7 @@ export default async function ConfirmedPage({ params }: Props) {
           {/* CTAs */}
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
-              href="https://discord.gg/vaulted"
+              href="https://discord.com"
               target="_blank"
               rel="noreferrer"
               className="mono inline-flex h-12 items-center border border-accent bg-accent/10 px-7 text-xs uppercase tracking-wider text-accent transition-all hover:bg-accent/20 hover:shadow-[0_0_24px_rgb(0_240_240/0.35)]"

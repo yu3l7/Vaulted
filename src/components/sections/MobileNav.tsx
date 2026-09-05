@@ -129,7 +129,7 @@ function MobileNavDrawer({
             </a>
           ))}
           <a
-            href="https://discord.gg/vaulted"
+            href="https://discord.com"
             target="_blank"
             rel="noreferrer"
             onClick={onClose}

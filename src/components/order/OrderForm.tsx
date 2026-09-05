@@ -321,7 +321,7 @@ export function OrderForm({
             By submitting you agree to our terms. We never ask for passwords.
             <br />
             <Link
-              href="https://discord.gg/vaulted"
+              href="https://discord.com"
               target="_blank"
               rel="noreferrer"
               className="text-accent hover:underline"

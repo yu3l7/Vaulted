@@ -137,7 +137,7 @@ export default async function ProductPage({ params }: Props) {
 
                 {/* Alt CTA */}
                 <Link
-                  href="https://discord.gg/vaulted"
+                  href="https://discord.com"
                   target="_blank"
                   rel="noreferrer"
                   className="mono mt-3 inline-flex h-10 items-center gap-2 text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent"

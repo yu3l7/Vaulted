@@ -3,12 +3,12 @@ import { Container } from "@/components/ui/Container";
 
 const CONTACT_LINKS = [
   {
-    href: "https://discord.gg/vaulted",
+    href: "https://discord.com",
     label: "discord ↗",
     external: true,
   },
   {
-    href: "mailto:hello@vaulted.example.com",
+    href: "https://gmail.com",
     label: "email",
     external: false,
   },

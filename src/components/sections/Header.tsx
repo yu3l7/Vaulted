@@ -15,7 +15,7 @@ export function Header() {
       <Container className="flex h-14 items-center justify-between">
         <a
           href="#top"
-          className="mono text-sm font-medium uppercase tracking-wider text-fg hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          className="font-display text-sm font-medium uppercase tracking-wider text-fg hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
         >
           <span className="text-accent">[</span>
           VAULTED<span className="text-accent">.</span>SYS
@@ -39,7 +39,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <Button
-            href="https://discord.gg/vaulted"
+            href="https://discord.com"
             external
             variant="bracket"
             size="sm"
